@@ -6,14 +6,11 @@
     
     <title>M2M: The Better Endings Tour 2025 - Live in Taipei</title>
     <meta name="description" content="Experience the miracle reunion of M2M in Taipei. From Marit Larsen's melodies to Marion Raven's energy, witness the Better Endings Tour 2025.">
-    <meta name="keywords" content="M2M, The Better Endings Tour, Taipei Concert, Marit Larsen, Marion Raven, Live Music, Review">
-    <meta property="og:title" content="M2M: The Better Endings Tour 2025 - Taipei">
-    <meta property="og:image" content="https://64.media.tumblr.com/0250d6e910b4a8d341caa6e34f72cabe/768dd54c7af20d71-13/s1280x1920/a5d88e36b6116089bd7e6bb5040dd261fc049387.jpg">
-    <meta property="og:description" content="A nostalgic journey 10 years in the making. The Better Endings Tour live in Taipei.">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- CSS Reset & Variables --- */
@@ -22,17 +19,13 @@
             --font-secondary: 'Lato', sans-serif;
             --color-white: #ffffff;
             --color-glass: rgba(255, 255, 255, 0.1);
-            --color-glass-hover: rgba(255, 255, 255, 0.2);
-            --color-glass-active: rgba(255, 255, 255, 0.3);
-            --color-border: rgba(255, 255, 255, 0.3);
+            --color-glass-hover: rgba(255, 255, 255, 0.25);
+            --color-glass-active: rgba(255, 255, 255, 0.35);
+            --color-border: rgba(255, 255, 255, 0.2);
             --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: #0a0a0a;
@@ -56,17 +49,14 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            padding-bottom: 4rem; /* Extra padding for footer */
+            padding-bottom: 4rem;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
             z-index: 1;
         }
 
@@ -78,6 +68,7 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            align-items: center; /* Center align everything */
         }
 
         /* --- Typography --- */
@@ -115,11 +106,12 @@
             font-weight: 300;
         }
 
-        /* --- Video Player Section --- */
+        /* --- Video Player Section (VERTICAL MODE) --- */
         .video-section {
             width: 100%;
-            max-width: 900px;
-            margin: 2rem auto;
+            /* 限制最大寬度，讓它在電腦上看起來像手機視窗，而不是佔滿整個螢幕 */
+            max-width: 400px; 
+            margin: 1rem auto 3rem auto;
             opacity: 0;
             animation: fadeInUp 1s ease 1.2s forwards;
             text-align: left;
@@ -127,35 +119,34 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            /* 9:16 Aspect Ratio Calculation: (16 / 9) * 100 = 177.77% */
+            padding-bottom: 177.77%; 
             height: 0;
             overflow: hidden;
             background: #000;
             border: 1px solid var(--color-border);
             box-shadow: var(--shadow);
-            border-radius: 4px;
+            border-radius: 12px; /* 稍微圓角，像手機 */
             margin-bottom: 1.5rem;
         }
 
         .video-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             border: 0;
         }
 
         .current-video-info {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             padding: 0 0.5rem;
+            text-align: center;
         }
 
         .current-video-title {
             font-family: var(--font-primary);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: var(--color-white);
-            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .video-playlist {
@@ -170,7 +161,7 @@
             background: var(--color-glass);
             padding: 1rem;
             border: 1px solid transparent;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -187,12 +178,13 @@
 
         .playlist-icon {
             margin-right: 1rem;
-            font-size: 1.2rem;
+            font-size: 1rem;
             opacity: 0.7;
+            min-width: 20px;
         }
 
         .playlist-text {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 300;
             white-space: nowrap;
             overflow: hidden;
@@ -240,16 +232,48 @@
             margin-bottom: 1rem;
         }
 
-        .card-title {
-            font-family: var(--font-primary);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+        .card-title { font-family: var(--font-primary); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .card-desc { font-size: 0.95rem; opacity: 0.8; font-weight: 300; }
+
+        /* --- Social & Contact Section --- */
+        .social-section {
+            margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease 2s forwards;
+            position: relative;
+            z-index: 2;
         }
 
-        .card-desc {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            font-weight: 300;
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .social-btn:hover {
+            background: var(--color-white);
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255,255,255,0.4);
         }
 
         /* --- Footer --- */
@@ -262,38 +286,21 @@
             width: 100%;
             text-align: center;
             color: white;
-            margin-top: 4rem;
         }
 
         /* --- Animations --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- Responsive Adjustments --- */
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .hero {
-                background-attachment: scroll;
-            }
-            h1 {
-                margin-bottom: 1rem;
-            }
-            .nav-card {
-                text-align: center;
-                min-height: auto;
-            }
-            .current-video-title {
-                font-size: 1.2rem;
-            }
+            .hero { background-attachment: scroll; }
+            h1 { margin-bottom: 1rem; }
+            .nav-card { text-align: center; min-height: auto; }
+            
+            /* 手機版讓播放器稍微寬一點，佔滿螢幕 */
+            .video-section { max-width: 90%; }
         }
     </style>
 </head>
@@ -317,7 +324,7 @@
                 </div>
                 
                 <div class="current-video-info">
-                    <h3 class="current-video-title" id="video-title">Loading title...</h3>
+                    <h3 class="current-video-title" id="video-title">Loading...</h3>
                 </div>
 
                 <div class="video-playlist" id="playlist-container">
@@ -344,6 +351,23 @@
                 </a>
             </nav>
         </div>
+
+        <div class="social-section">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/" target="_blank" class="social-btn" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@Tigre" target="_blank" class="social-btn" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:your-email@example.com" class="social-btn" title="Email Contact">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://itigre.com" target="_blank" class="social-btn" title="Official Website">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        </div>
         
         <footer>
             &copy; 2025, by Halafish / iTigre.com
@@ -352,17 +376,14 @@
 
     <script>
         // --- YouTube Video Data ---
-        // 若要新增影片，請複製格式並加入下方的清單中
-        // id: YouTube 影片網址 "v=" 後面的代碼
-        // title: 影片標題 (已為您自動擷取)
         const videoList = [
             {
                 id: 'UwOCXyZ0_ok',
-                title: 'M2M The Better Endings Tour 2025 in Taipei / If a song could get me you'
+                title: 'M2M The Better Endings Tour 2025 in Taipei'
             },
             {
                 id: 'ohJz0ZmAJ_c',
-                title: 'M2M Dynamic Duo: Marion Dives Off Stage into the Crowd! 😆'
+                title: 'Dynamic Duo: Marion Dives Off Stage!'
             }
         ];
 
@@ -374,43 +395,32 @@
         function loadVideo(index) {
             currentIndex = index;
             const video = videoList[index];
-            
-            // 更新 Iframe
             player.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
-            
-            // 更新標題
             titleDisplay.textContent = video.title;
-
-            // 更新播放清單的 Active 狀態
             renderPlaylist();
         }
 
         function renderPlaylist() {
-            playlistContainer.innerHTML = ''; // 清空清單
-
+            playlistContainer.innerHTML = ''; 
             videoList.forEach((video, index) => {
                 const item = document.createElement('div');
                 item.className = `playlist-item ${index === currentIndex ? 'active' : ''}`;
                 item.onclick = () => loadVideo(index);
-
                 item.innerHTML = `
-                    <span class="playlist-icon">${index === currentIndex ? '▶' : '•'}</span>
+                    <span class="playlist-icon">${index === currentIndex ? '<i class="fas fa-play"></i>' : '<i class="fas fa-circle-play"></i>'}</span>
                     <span class="playlist-text">${video.title}</span>
                 `;
-
                 playlistContainer.appendChild(item);
             });
         }
 
-        // 初始化播放第一支影片 (不自動播放，以免重新整理就發出聲音)
         function init() {
             const firstVideo = videoList[0];
-            player.src = `https://www.youtube.com/embed/${firstVideo.id}`; // 移除 autoplay
+            player.src = `https://www.youtube.com/embed/${firstVideo.id}`; 
             titleDisplay.textContent = firstVideo.title;
             renderPlaylist();
         }
 
-        // 啟動
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
