@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- CSS Reset & Variables --- */
@@ -39,6 +40,7 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
+            /* Background Image Setup */
             background-image: url('https://64.media.tumblr.com/0250d6e910b4a8d341caa6e34f72cabe/768dd54c7af20d71-13/s1280x1920/a5d88e36b6116089bd7e6bb5040dd261fc049387.jpg');
             background-size: cover;
             background-position: center;
@@ -49,14 +51,14 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
-            padding-bottom: 4rem;
+            padding-bottom: 6rem; /* Space for content */
         }
 
         .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.95));
             z-index: 1;
         }
 
@@ -68,7 +70,7 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            align-items: center; /* Center align everything */
+            align-items: center;
         }
 
         /* --- Typography --- */
@@ -106,11 +108,10 @@
             font-weight: 300;
         }
 
-        /* --- Video Player Section (VERTICAL MODE) --- */
+        /* --- Video Player Section (Vertical) --- */
         .video-section {
             width: 100%;
-            /* 限制最大寬度，讓它在電腦上看起來像手機視窗，而不是佔滿整個螢幕 */
-            max-width: 400px; 
+            max-width: 400px; /* Limits width on desktop */
             margin: 1rem auto 3rem auto;
             opacity: 0;
             animation: fadeInUp 1s ease 1.2s forwards;
@@ -119,14 +120,13 @@
 
         .video-wrapper {
             position: relative;
-            /* 9:16 Aspect Ratio Calculation: (16 / 9) * 100 = 177.77% */
-            padding-bottom: 177.77%; 
+            padding-bottom: 177.77%; /* 9:16 Ratio */
             height: 0;
             overflow: hidden;
             background: #000;
             border: 1px solid var(--color-border);
             box-shadow: var(--shadow);
-            border-radius: 12px; /* 稍微圓角，像手機 */
+            border-radius: 12px;
             margin-bottom: 1.5rem;
         }
 
@@ -237,7 +237,7 @@
 
         /* --- Social & Contact Section --- */
         .social-section {
-            margin-top: 4rem;
+            margin-top: 5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -248,9 +248,19 @@
             z-index: 2;
         }
 
+        .social-title {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+
         .social-icons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .social-btn {
@@ -273,7 +283,7 @@
             background: var(--color-white);
             color: #000;
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255,255,255,0.4);
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
         }
 
         /* --- Footer --- */
@@ -293,13 +303,22 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- Responsive --- */
+        /* --- Mobile Background Pan Animation --- */
+        @keyframes panImage {
+            0% { background-position: 35% center; }
+            50% { background-position: 65% center; }
+            100% { background-position: 35% center; }
+        }
+
+        /* --- Responsive Adjustments --- */
         @media (max-width: 768px) {
-            .hero { background-attachment: scroll; }
+            .hero {
+                background-attachment: scroll; /* Allow scrolling on mobile */
+                /* Enable the panning animation */
+                animation: panImage 25s ease-in-out infinite alternate;
+            }
             h1 { margin-bottom: 1rem; }
             .nav-card { text-align: center; min-height: auto; }
-            
-            /* 手機版讓播放器稍微寬一點，佔滿螢幕 */
             .video-section { max-width: 90%; }
         }
     </style>
@@ -353,18 +372,22 @@
         </div>
 
         <div class="social-section">
+            <div class="social-title">Connect with Halafish</div>
             <div class="social-icons">
-                <a href="https://www.instagram.com/" target="_blank" class="social-btn" title="Instagram">
+                <a href="https://www.facebook.com/halafish/" target="_blank" class="social-btn" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/halafish/" target="_blank" class="social-btn" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.youtube.com/@Tigre" target="_blank" class="social-btn" title="YouTube">
+                <a href="https://www.threads.com/@halafish" target="_blank" class="social-btn" title="Threads">
+                    <i class="fa-brands fa-threads"></i>
+                </a>
+                <a href="https://www.youtube.com/@itigre" target="_blank" class="social-btn" title="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="mailto:your-email@example.com" class="social-btn" title="Email Contact">
+                <a href="mailto:Halafish@gmail.com" class="social-btn" title="Email Me">
                     <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://itigre.com" target="_blank" class="social-btn" title="Official Website">
-                    <i class="fas fa-globe"></i>
                 </a>
             </div>
         </div>
