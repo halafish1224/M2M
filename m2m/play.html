@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>M2M: The Better Endings Tour 2025 - Live in Taipei</title>
+    <meta name="description" content="Experience the miracle reunion of M2M in Taipei. From Marit Larsen's melodies to Marion Raven's energy, witness the Better Endings Tour 2025.">
+    <meta name="keywords" content="M2M, The Better Endings Tour, Taipei Concert, Marit Larsen, Marion Raven, Live Music, Review">
+    <meta property="og:title" content="M2M: The Better Endings Tour 2025 - Taipei">
+    <meta property="og:image" content="https://64.media.tumblr.com/0250d6e910b4a8d341caa6e34f72cabe/768dd54c7af20d71-13/s1280x1920/a5d88e36b6116089bd7e6bb5040dd261fc049387.jpg">
+    <meta property="og:description" content="A nostalgic journey 10 years in the making. The Better Endings Tour live in Taipei.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Reset & Variables --- */
+        :root {
+            --font-primary: 'Playfair Display', serif;
+            --font-secondary: 'Lato', sans-serif;
+            --color-white: #ffffff;
+            --color-glass: rgba(255, 255, 255, 0.1);
+            --color-glass-hover: rgba(255, 255, 255, 0.2);
+            --color-glass-active: rgba(255, 255, 255, 0.3);
+            --color-border: rgba(255, 255, 255, 0.3);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: var(--color-white);
+            font-family: var(--font-secondary);
+            overflow-x: hidden;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('https://64.media.tumblr.com/0250d6e910b4a8d341caa6e34f72cabe/768dd54c7af20d71-13/s1280x1920/a5d88e36b6116089bd7e6bb5040dd261fc049387.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            padding-bottom: 4rem; /* Extra padding for footer */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: clamp(5rem, 15vw, 12rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInDown 1.5s ease forwards;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: var(--font-primary);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease 0.5s forwards;
+            color: #e0e0e0;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 2s ease 1s forwards;
+            font-weight: 300;
+        }
+
+        /* --- Video Player Section --- */
+        .video-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 2rem auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+            text-align: left;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .current-video-info {
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .current-video-title {
+            font-family: var(--font-primary);
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-playlist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            background: var(--color-glass);
+            padding: 1rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .playlist-item:hover {
+            background: var(--color-glass-hover);
+            transform: translateX(5px);
+        }
+
+        .playlist-item.active {
+            background: var(--color-glass-active);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .playlist-icon {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .playlist-text {
+            font-size: 1rem;
+            font-weight: 300;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* --- Navigation / Links Grid --- */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.5s forwards;
+        }
+
+        .nav-card {
+            background: var(--color-glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--color-border);
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            color: var(--color-white);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 200px;
+            text-align: left;
+        }
+
+        .nav-card:hover {
+            background: var(--color-glass-hover);
+            transform: translateY(-5px);
+            border-color: #ffffff;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-number {
+            font-family: var(--font-primary);
+            font-size: 3rem;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* --- Footer --- */
+        footer {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            width: 100%;
+            text-align: center;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+            }
+            h1 {
+                margin-bottom: 1rem;
+            }
+            .nav-card {
+                text-align: center;
+                min-height: auto;
+            }
+            .current-video-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="hero">
+        <div class="content-wrapper">
+            <header>
+                <h1>M2M</h1>
+                <h2>The Better Endings Tour <br> Taipei 2025</h2>
+            </header>
+
+            <p class="intro-text">
+                From a chance encounter in an empty coffee shop to the stage in Taipei. 
+                Two voices, one reunion, and the closure we all waited for.
+            </p>
+
+            <section class="video-section">
+                <div class="video-wrapper">
+                    <iframe id="main-player" src="" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="current-video-info">
+                    <h3 class="current-video-title" id="video-title">Loading title...</h3>
+                </div>
+
+                <div class="video-playlist" id="playlist-container">
+                    </div>
+            </section>
+
+            <nav class="nav-grid">
+                <a href="https://itigre.com/tagged/Marit%20Larsen" class="nav-card" target="_blank" rel="noopener">
+                    <span class="card-number">01</span>
+                    <h3 class="card-title">Marit Larsen</h3>
+                    <p class="card-desc">The Melody. <br>If a song could get me you: The infinite loop that started it all.</p>
+                </a>
+
+                <a href="https://itigre.com/tagged/Marion%20Raven" class="nav-card" target="_blank" rel="noopener">
+                    <span class="card-number">02</span>
+                    <h3 class="card-title">Marion Raven</h3>
+                    <p class="card-desc">The Energy. <br>Rediscovering the rock soul and the "Big E" spirit on stage.</p>
+                </a>
+
+                <a href="https://itigre.com/tagged/the%20M2M%20Live" class="nav-card" target="_blank" rel="noopener">
+                    <span class="card-number">03</span>
+                    <h3 class="card-title">The Reunion</h3>
+                    <p class="card-desc">The Better Ending. <br>A flat tire, a coffee shop, and a spotlight from the heavens.</p>
+                </a>
+            </nav>
+        </div>
+        
+        <footer>
+            &copy; 2025, by Halafish / iTigre.com
+        </footer>
+    </main>
+
+    <script>
+        // --- YouTube Video Data ---
+        // 若要新增影片，請複製格式並加入下方的清單中
+        // id: YouTube 影片網址 "v=" 後面的代碼
+        // title: 影片標題 (已為您自動擷取)
+        const videoList = [
+            {
+                id: 'UwOCXyZ0_ok',
+                title: 'M2M The Better Endings Tour 2025 in Taipei / If a song could get me you'
+            },
+            {
+                id: 'ohJz0ZmAJ_c',
+                title: 'M2M Dynamic Duo: Marion Dives Off Stage into the Crowd! 😆'
+            }
+        ];
+
+        const player = document.getElementById('main-player');
+        const titleDisplay = document.getElementById('video-title');
+        const playlistContainer = document.getElementById('playlist-container');
+        let currentIndex = 0;
+
+        function loadVideo(index) {
+            currentIndex = index;
+            const video = videoList[index];
+            
+            // 更新 Iframe
+            player.src = `https://www.youtube.com/embed/${video.id}?autoplay=1`;
+            
+            // 更新標題
+            titleDisplay.textContent = video.title;
+
+            // 更新播放清單的 Active 狀態
+            renderPlaylist();
+        }
+
+        function renderPlaylist() {
+            playlistContainer.innerHTML = ''; // 清空清單
+
+            videoList.forEach((video, index) => {
+                const item = document.createElement('div');
+                item.className = `playlist-item ${index === currentIndex ? 'active' : ''}`;
+                item.onclick = () => loadVideo(index);
+
+                item.innerHTML = `
+                    <span class="playlist-icon">${index === currentIndex ? '▶' : '•'}</span>
+                    <span class="playlist-text">${video.title}</span>
+                `;
+
+                playlistContainer.appendChild(item);
+            });
+        }
+
+        // 初始化播放第一支影片 (不自動播放，以免重新整理就發出聲音)
+        function init() {
+            const firstVideo = videoList[0];
+            player.src = `https://www.youtube.com/embed/${firstVideo.id}`; // 移除 autoplay
+            titleDisplay.textContent = firstVideo.title;
+            renderPlaylist();
+        }
+
+        // 啟動
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
