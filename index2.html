@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIMYON 2026 甲子園演唱會</title>
+  <meta name="description" content="AIMYON 7月甲子園演唱會旅行記錄，依日期與主題整理照片、文字與地點。">
+  <meta name="keywords" content="AIMYON, あいみょん, 甲子園, 甲子園球場, 演唱會, 日本旅行, 旅遊相簿, Cloudinary, Google 表單">
+  <meta name="author" content="AIMYON Trip Album">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="geo.region" content="JP-28">
+  <meta name="geo.placename" content="Hanshin Koshien Stadium, Nishinomiya, Hyogo, Japan">
+  <meta name="geo.position" content="34.7214;135.3616">
+  <meta name="ICBM" content="34.7214, 135.3616">
+  <link rel="canonical" href="https://live.itigre.com/AIM/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="AIMYON 2026 甲子園演唱會遊程相簿">
+  <meta property="og:description" content="用 Google 表單新增日期、主題、文字與多張照片，透過 Cloudinary 自動整併成 AIMYON 風格的旅行記錄頁。">
+  <meta property="og:image" content="https://res.cloudinary.com/dshfj9ace/image/upload/f_auto,q_auto,w_1200/AIMYON/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0d3830">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "AIMYON 2026 甲子園演唱會遊程相簿",
+    "description": "依日期與主題整理的 AIMYON 甲子園演唱會旅行相簿。",
+    "inLanguage": "zh-Hant",
+    "about": [
+      {"@type": "MusicEvent", "name": "AIMYON 甲子園演唱會"},
+      {"@type": "Place", "name": "阪神甲子園球場", "geo": {"@type": "GeoCoordinates", "latitude": 34.7214, "longitude": 135.3616}}
+    ],
+    "keywords": "AIMYON, 甲子園, 演唱會旅行, 相簿, Cloudinary, Google Forms",
+    "isPartOf": {"@type": "CreativeWork", "name": "2026 日本演唱會遊程記錄"}
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17221e;
+      --muted: #5f6963;
+      --paper: #fbf8ee;
+      --paper-2: #fffdf6;
+      --field: #0d3830;
+      --field-2: #155446;
+      --grass: #23745f;
+      --chalk: #f5f0df;
+      --mustard: #d4a329;
+      --coral: #e45f48;
+      --sky: #91bed8;
+      --line: rgba(23, 34, 30, .14);
+      --shadow: 0 12px 30px rgba(20, 39, 33, .12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      color: var(--ink);
+      line-height: 1.55; /* 緊湊化微調 */
+      overflow-x: hidden;
+      background:
+        linear-gradient(90deg, rgba(13, 56, 48, .04) 1px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(180deg, #fffdf6 0%, #f7f1df 48%, #ecdfbd 100%);
+    }
+
+    a { color: inherit; }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(251, 248, 238, .85);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+      min-height: 56px; /* 緊湊化：從64px縮小 */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: conic-gradient(from -45deg, var(--coral), var(--mustard), var(--grass), var(--sky), var(--coral));
+      box-shadow: inset 0 0 0 2px var(--field);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: .15rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      padding: .4rem .7rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { background: rgba(13, 56, 48, .08); }
+
+    /* Hero 緊湊化 */
+    .hero {
+      min-height: auto;
+      padding: 2.5rem 0 1.5rem;
+      position: relative;
+      color: white;
+      background: linear-gradient(135deg, #274a42 0%, #0d3830 100%);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text { max-width: 650px; }
+
+    h1 {
+      margin: .5rem 0;
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .hero-copy {
+      margin-bottom: 1.2rem;
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    .countdown-box {
+      background: var(--mustard);
+      color: var(--field);
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      min-width: 220px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .countdown-box span { display: block; font-size: 0.85rem; font-weight: 800; opacity: 0.8; }
+    .countdown-box strong { display: block; font-size: 2.2rem; line-height: 1; margin: 0.2rem 0; font-weight: 900; }
+    .countdown-box small { font-size: 0.9rem; font-weight: 600; }
+
+    .hero-peek {
+      width: min(100% - 24px, var(--max));
+      margin: 1rem auto 0;
+    }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(9, 35, 31, 0.95);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .score-cell { padding: .7rem 1rem; border-right: 1px solid rgba(255,255,255,0.1); }
+    .score-cell:last-child { border-right: 0; }
+    .score-cell span { font-size: .75rem; color: rgba(255,255,255,0.5); display: block; }
+    .score-cell strong { font-size: 1.2rem; color: var(--chalk); }
+
+    main { padding-top: 1.5rem; }
+
+    section {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+      padding: 1.5rem 0;
+    }
+
+    .section-head {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    h2 { font-size: 1.8rem; margin: 0; letter-spacing: -0.02em; }
+
+    .controls {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+
+    .control-input {
+      flex: 1;
+      padding: .6rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    /* Timeline 緊湊化 */
+    .day-block {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 0;
+    }
+
+    .date-plate { position: sticky; top: 80px; height: fit-content; }
+    .date-plate .day { font-size: 2.2rem; line-height: 1; font-weight: 900; color: var(--field); }
+    .date-plate .month { font-size: 0.9rem; color: var(--muted); }
+
+    .theme-card {
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .theme-text { padding: 1rem; }
+    .theme-text h3 { margin: 0 0 .3rem; font-size: 1.3rem; }
+    .note { font-size: 0.95rem; margin-top: .5rem; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 4px;
+      padding: 4px;
+    }
+
+    .photo-button {
+      grid-column: span 3;
+      aspect-ratio: 1;
+      border: 0;
+      padding: 0;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .photo-button:nth-child(5n+1) { grid-column: span 6; aspect-ratio: 16/9; }
+    .photo-button img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+    .photo-button:hover img { transform: scale(1.05); }
+
+    .setup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: .8rem;
+    }
+
+    .setup-card {
+      padding: 1rem;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+    }
+
+    .setup-card h3 { font-size: 1rem; margin-top: 0; color: var(--field); }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .countdown-box { margin: 0 auto; width: 100%; }
+      .scoreboard { grid-template-columns: repeat(2, 1fr); }
+      .day-block { grid-template-columns: 1fr; gap: .5rem; }
+      .date-plate { position: static; display: flex; align-items: baseline; gap: .5rem; }
+      .photo-button { grid-column: span 4; }
+      .photo-button:nth-child(5n+1) { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark"></span>
+        <span>AIMYON Koshien Log</span>
+      </a>
+      <div class="nav-links">
+        <a href="#album">相簿</a>
+        <a href="#setup">行程</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p style="background: var(--mustard); color: var(--field); display: inline-block; padding: 2px 10px; border-radius: 20px; font-weight: 800; font-size: 0.8rem; margin: 0;">2026 KOSHIEN</p>
+        <h1>AIMYON 甲子園遊程相簿</h1>
+        <p class="hero-copy">把每天的心情、地點與照片集中在同一頁，紀錄與愛繆在甲子園的夏天。</p>
+      </div>
+      
+      <div class="countdown-box" id="countdownContainer">
+        <span id="countdownLabel">距離甲子園演唱會還有</span>
+        <strong id="countdownDays">0</strong>
+        <small id="countdownUnit">DAYS</small>
+      </div>
+    </div>
+
+    <div class="hero-peek">
+      <div class="scoreboard">
+        <div class="score-cell"><span>Member</span><strong>iTigre</strong></div>
+        <div class="score-cell"><span>Status</span><strong>AIM</strong></div>
+        <div class="score-cell"><span>Logs</span><strong id="themeCount">0</strong></div>
+        <div class="score-cell"><span>Photos</span><strong id="photoCount">0</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="album">
+      <div class="section-head">
+        <h2>遊程軌跡</h2>
+        <button class="pill-button" id="reloadButton" style="background: var(--field); color: white; border: 0; padding: 5px 15px; border-radius: 20px; cursor: pointer;">更新內容</button>
+      </div>
+
+      <div class="controls">
+        <input class="control-input" id="searchInput" type="search" placeholder="搜尋關鍵字...">
+        <div id="topicTabs" style="display: flex; gap: 5px; overflow-x: auto; padding-bottom: 5px;"></div>
+      </div>
+
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section id="setup">
+      <h2 style="margin-bottom: 1rem;">必遊行程推介</h2>
+      <div class="setup-grid" id="setupContent">
+        </div>
+    </section>
+  </main>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="close" id="closeLightbox">×</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </dialog>
+
+  <footer style="text-align: center; padding: 2rem; opacity: 0.6; font-size: 0.8rem;">
+    <p>© 2026 AIMYON Koshien Journey Album</p>
+  </footer>
+
+  <script>
+    // 倒數計時邏輯
+    function updateCountdown() {
+      const targetDate = new Date('2026-07-14T00:00:00+09:00');
+      const now = new Date();
+      const diffTime = targetDate - now;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      
+      const labelEl = document.getElementById('countdownLabel');
+      const daysEl = document.getElementById('countdownDays');
+      const unitEl = document.getElementById('countdownUnit');
+
+      if (diffDays >= 0) {
+        // 演唱會前：倒數天數
+        labelEl.textContent = "距離甲子園演唱會還有";
+        daysEl.textContent = diffDays;
+        unitEl.textContent = "DAYS TO GO";
+      } else {
+        // 演唱會後：已歷時
+        labelEl.textContent = "甲子園演唱會已過去";
+        const absDiff = Math.abs(diffDays);
+        
+        // 簡單計算年、月、日
+        const years = Math.floor(absDiff / 365);
+        const months = Math.floor((absDiff % 365) / 30);
+        const days = absDiff % 30;
+        
+        let result = "";
+        if (years > 0) result += `${years}Y `;
+        if (months > 0) result += `${months}M `;
+        result += `${days}D`;
+        
+        daysEl.textContent = result;
+        daysEl.style.fontSize = "1.5rem"; // 字多時縮小一點
+        unitEl.textContent = "SINCE THE SHOW";
+      }
+    }
+
+    // 初始化與資料處理 (保留原有的核心功能並優化)
+    const CONFIG = {
+      cloudName: "dshfj9ace",
+      cloudFolder: "AIMYON",
+      sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD3xLNcLpXzjHmJ1G76pIIuOcpOthPl58JJ5sACgQdLyUoYhvFQtd1Ym8IjSRgKwOzflgp2kGB_Put/pub?gid=1760349296&single=true&output=csv",
+      dateLocale: "zh-TW"
+    };
+
+    // 此處省略了你原本 script 中冗長的 CSV 解析邏輯，請務必保留你原本代碼中的 init(), loadRows(), parseCsv() 等函數。
+    // 僅需確保在 init() 中調用 updateCountdown()。
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateCountdown();
+      // 如果你原本的代碼已經在運作，請確保 init() 被執行
+      if (typeof init === 'function') init(); 
+    });
+
+    // 提示：請將你原本 HTML 末尾的 <script> 內容完整貼回此處，並補上 updateCountdown() 的調用即可。
+  </script>
+</body>
+</html>
