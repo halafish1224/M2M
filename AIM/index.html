@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html><!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -66,7 +66,7 @@
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
       color: var(--ink);
-      line-height: 1.65;
+      line-height: 1.58;
       overflow-x: hidden;
       background:
         linear-gradient(90deg, rgba(13, 56, 48, .05) 1px, transparent 1px) 0 0 / 22px 22px,
@@ -111,11 +111,11 @@
     .nav {
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
-      min-height: 64px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: .8rem;
     }
 
     .brand {
@@ -141,19 +141,19 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: .3rem;
+      gap: .2rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav-links a,
     .pill-button {
-      min-height: 40px;
+      min-height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: .42rem;
-      padding: .5rem .8rem;
+      padding: .45rem .72rem;
       border-radius: 999px;
       text-decoration: none;
       color: var(--field);
@@ -171,7 +171,7 @@
     }
 
     .hero {
-      min-height: calc(100svh - 64px);
+      min-height: calc(92svh - 60px);
       display: grid;
       align-items: end;
       position: relative;
@@ -215,7 +215,7 @@
       z-index: 1;
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
-      padding: clamp(4rem, 9vw, 7rem) 0 clamp(2.2rem, 5vw, 4rem);
+      padding: clamp(3.2rem, 7vw, 5.8rem) 0 clamp(1.8rem, 4vw, 3.2rem);
     }
 
     .eyebrow {
@@ -224,15 +224,15 @@
       background: var(--mustard);
       border: 2px solid rgba(255, 255, 255, .32);
       border-radius: 999px;
-      padding: .34rem .75rem;
+      padding: .3rem .7rem;
       font-weight: 800;
-      margin: 0 0 1rem;
+      margin: 0 0 .8rem;
     }
 
     h1 {
       max-width: 920px;
       margin: 0;
-      font-size: clamp(2.4rem, 8vw, 6.7rem);
+      font-size: clamp(2.2rem, 7.2vw, 6.1rem);
       line-height: .96;
       letter-spacing: 0;
       text-wrap: balance;
@@ -240,26 +240,26 @@
 
     .hero-copy {
       max-width: 680px;
-      margin: 1.15rem 0 1.7rem;
+      margin: .9rem 0 1.2rem;
       color: rgba(255, 255, 255, .88);
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(.96rem, 1.8vw, 1.12rem);
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: .75rem;
+      gap: .55rem;
     }
 
     .primary-link,
     .secondary-link {
-      min-height: 46px;
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: .45rem;
-      padding: .72rem 1rem;
+      padding: .62rem .9rem;
       border-radius: 999px;
       text-decoration: none;
       font-weight: 800;
@@ -280,12 +280,12 @@
       margin: 0 auto;
       position: relative;
       z-index: 2;
-      transform: translateY(50%);
+      transform: translateY(46%);
     }
 
     .scoreboard {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: minmax(280px, 1.35fr) repeat(4, minmax(120px, 1fr));
       overflow: hidden;
       border: 1px solid rgba(245, 240, 223, .38);
       border-radius: var(--radius);
@@ -294,7 +294,7 @@
     }
 
     .score-cell {
-      padding: .9rem;
+      padding: .8rem;
       border-right: 1px solid rgba(245, 240, 223, .18);
     }
 
@@ -303,43 +303,75 @@
     .score-cell span {
       display: block;
       color: rgba(245, 240, 223, .66);
-      font-size: .78rem;
+      font-size: .74rem;
     }
 
     .score-cell strong {
       display: block;
       color: var(--chalk);
-      font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+      font-size: clamp(1rem, 2.1vw, 1.45rem);
       line-height: 1.25;
     }
 
+    .countdown-cell {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: .75rem;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(212, 163, 41, .26), transparent 58%),
+        rgba(228, 95, 72, .1);
+    }
+
+    .countdown-number {
+      color: var(--mustard);
+      font-size: clamp(3rem, 9vw, 6.8rem);
+      font-weight: 900;
+      line-height: .84;
+    }
+
+    .countdown-copy {
+      min-width: 0;
+    }
+
+    .countdown-copy strong {
+      font-size: clamp(1.05rem, 2vw, 1.45rem);
+    }
+
+    .countdown-copy small {
+      display: block;
+      margin-top: .18rem;
+      color: rgba(245, 240, 223, .72);
+      line-height: 1.35;
+    }
+
     main {
-      padding-top: clamp(5rem, 11vw, 8rem);
+      padding-top: clamp(4.2rem, 9vw, 6.8rem);
     }
 
     section {
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
-      padding: clamp(2.2rem, 5vw, 4rem) 0;
+      padding: clamp(1.8rem, 4vw, 3.2rem) 0;
     }
 
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 1rem;
+      gap: .8rem;
       align-items: end;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     h2 {
       margin: 0;
-      font-size: clamp(1.75rem, 4vw, 3rem);
+      font-size: clamp(1.55rem, 3.4vw, 2.65rem);
       line-height: 1.08;
       letter-spacing: 0;
     }
 
     .section-head p {
-      margin: .55rem 0 0;
+      margin: .4rem 0 0;
       color: var(--muted);
       max-width: 680px;
     }
@@ -347,24 +379,24 @@
     .controls {
       display: flex;
       align-items: center;
-      gap: .6rem;
+      gap: .5rem;
       flex-wrap: wrap;
-      margin-bottom: 1.2rem;
+      margin-bottom: .9rem;
     }
 
     .control-input {
-      min-height: 42px;
+      min-height: 40px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: rgba(255, 253, 246, .78);
-      padding: .58rem .9rem;
+      padding: .5rem .85rem;
       color: var(--ink);
       min-width: min(100%, 280px);
     }
 
     .topic-tabs {
       display: flex;
-      gap: .5rem;
+      gap: .4rem;
       overflow-x: auto;
       padding: .2rem 0 .6rem;
       scrollbar-width: thin;
@@ -372,15 +404,15 @@
 
     .timeline {
       display: grid;
-      gap: 1.2rem;
+      gap: .9rem;
     }
 
     .day-block {
       display: grid;
       grid-template-columns: 160px minmax(0, 1fr);
-      gap: clamp(1rem, 4vw, 2rem);
+      gap: clamp(.8rem, 3vw, 1.5rem);
       align-items: start;
-      padding: 1.2rem 0;
+      padding: .95rem 0;
       border-top: 1px solid var(--line);
     }
 
@@ -408,12 +440,12 @@
     }
 
     .date-plate .day {
-      font-size: 2.25rem;
+      font-size: 2rem;
     }
 
     .theme-list {
       display: grid;
-      gap: 1rem;
+      gap: .75rem;
     }
 
     .theme-card {
@@ -425,14 +457,14 @@
     }
 
     .theme-text {
-      padding: 1rem 1rem .7rem;
+      padding: .85rem .9rem .62rem;
       display: grid;
-      gap: .4rem;
+      gap: .32rem;
     }
 
     .theme-text h3 {
       margin: 0;
-      font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+      font-size: clamp(1.05rem, 2vw, 1.42rem);
       line-height: 1.25;
       letter-spacing: 0;
     }
@@ -442,7 +474,7 @@
       flex-wrap: wrap;
       gap: .45rem .8rem;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: .88rem;
     }
 
     .note {
@@ -461,8 +493,8 @@
     .tag {
       display: inline-flex;
       align-items: center;
-      min-height: 28px;
-      padding: .18rem .55rem;
+      min-height: 26px;
+      padding: .14rem .5rem;
       border-radius: 999px;
       background: rgba(35, 116, 95, .1);
       color: var(--field);
@@ -480,7 +512,7 @@
     .photo-button {
       grid-column: span 4;
       position: relative;
-      min-height: 180px;
+      min-height: 156px;
       border: 0;
       border-radius: 6px;
       overflow: hidden;
@@ -489,8 +521,8 @@
       cursor: zoom-in;
     }
 
-    .photo-button:nth-child(5n + 1) { grid-column: span 7; min-height: 250px; }
-    .photo-button:nth-child(5n + 2) { grid-column: span 5; min-height: 250px; }
+    .photo-button:nth-child(5n + 1) { grid-column: span 7; min-height: 220px; }
+    .photo-button:nth-child(5n + 2) { grid-column: span 5; min-height: 220px; }
 
     .photo-button img {
       width: 100%;
@@ -520,23 +552,23 @@
         linear-gradient(rgba(13, 56, 48, .9), rgba(13, 56, 48, .9)),
         repeating-linear-gradient(45deg, rgba(245, 240, 223, .1) 0 2px, transparent 2px 18px);
       color: white;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       padding: 0;
     }
 
     .map-inner {
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
-      padding: clamp(2.6rem, 6vw, 5rem) 0;
+      padding: clamp(2rem, 5vw, 4rem) 0;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
-      gap: clamp(1.4rem, 5vw, 4rem);
+      gap: clamp(1rem, 4vw, 3rem);
       align-items: center;
     }
 
     .map-inner p {
       color: rgba(255, 255, 255, .8);
-      margin: .75rem 0 1.2rem;
+      margin: .6rem 0 1rem;
     }
 
     .diamond {
@@ -570,24 +602,118 @@
     .setup-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: .9rem;
+      gap: .72rem;
     }
 
     .setup-card {
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(255, 253, 246, .72);
-      padding: 1rem;
+      padding: .85rem;
     }
 
     .setup-card h3 {
-      margin: 0 0 .4rem;
-      font-size: 1.05rem;
+      margin: 0 0 .32rem;
+      font-size: 1rem;
     }
 
     .setup-card p {
       margin: 0;
       color: var(--muted);
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr);
+      gap: .8rem;
+      align-items: start;
+    }
+
+    .archive-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 246, .78);
+      padding: .9rem;
+    }
+
+    .archive-panel h3 {
+      margin: 0 0 .55rem;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.25;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: .35rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .archive-list li,
+    .finding-list li {
+      padding: .5rem .58rem;
+      border-left: 4px solid var(--mustard);
+      background: rgba(35, 116, 95, .07);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .archive-list strong,
+    .finding-list strong {
+      color: var(--field);
+    }
+
+    .table-wrap {
+      margin-top: .8rem;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 246, .82);
+    }
+
+    .release-table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+      font-size: .86rem;
+      line-height: 1.42;
+    }
+
+    .release-table caption {
+      padding: .72rem .8rem;
+      text-align: left;
+      font-weight: 800;
+      color: var(--field);
+      background: rgba(212, 163, 41, .16);
+    }
+
+    .release-table th,
+    .release-table td {
+      padding: .48rem .58rem;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .release-table th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      color: var(--field);
+      background: var(--paper-2);
+    }
+
+    .release-table tbody tr:nth-child(even) {
+      background: rgba(145, 190, 216, .08);
+    }
+
+    .finding-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .72rem;
+      margin: .8rem 0 0;
+      padding: 0;
+      list-style: none;
     }
 
     .lightbox {
@@ -688,18 +814,31 @@
       }
 
       .hero-peek {
-        transform: translateY(42%);
+        transform: translateY(38%);
       }
 
       .scoreboard {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .score-cell:nth-child(2) { border-right: 0; }
-      .score-cell:nth-child(-n + 2) { border-bottom: 1px solid rgba(245, 240, 223, .18); }
+      .countdown-cell {
+        grid-column: 1 / -1;
+        border-right: 0;
+        border-bottom: 1px solid rgba(245, 240, 223, .18);
+      }
+
+      .score-cell:nth-child(3),
+      .score-cell:nth-child(5) {
+        border-right: 0;
+      }
+
+      .score-cell:nth-child(2),
+      .score-cell:nth-child(3) {
+        border-bottom: 1px solid rgba(245, 240, 223, .18);
+      }
 
       main {
-        padding-top: 7rem;
+        padding-top: 8.5rem;
       }
 
       .section-head {
@@ -722,7 +861,9 @@
       }
 
       .map-inner,
-      .setup-grid {
+      .setup-grid,
+      .archive-grid,
+      .finding-list {
         grid-template-columns: 1fr;
       }
     }
@@ -742,6 +883,15 @@
       .primary-link,
       .secondary-link {
         width: 100%;
+      }
+
+      .countdown-cell {
+        grid-template-columns: 1fr;
+        gap: .38rem;
+      }
+
+      .countdown-number {
+        font-size: clamp(3.6rem, 21vw, 6rem);
       }
     }
 
@@ -779,6 +929,14 @@
     </div>
     <div class="hero-peek" aria-label="旅程摘要">
       <div class="scoreboard">
+        <div class="score-cell countdown-cell" aria-live="polite">
+          <div class="countdown-number" id="concertDays">0</div>
+          <div class="countdown-copy">
+            <span id="concertStatus">甲子園演唱會倒數</span>
+            <strong id="concertDuration">2026/7/14</strong>
+            <small id="concertNote">第一天的甲子園演唱會</small>
+          </div>
+        </div>
         <div class="score-cell"><span>Aimyon</span><strong>iTigre</strong></div>
         <div class="score-cell"><span>Koshien</span><strong>AIMYON</strong></div>
         <div class="score-cell"><span>Log</span><strong id="themeCount">0</strong></div>
@@ -820,6 +978,8 @@
       </div>
     </section>
 
+        </section>
+
     <section id="setup" aria-labelledby="setupTitle">
       <div class="section-head">
         <div>
@@ -855,9 +1015,9 @@
         
         <article class="setup-card">
           <h3>6.<a href="https://maps.app.goo.gl/G3Wbw9aw74vUkLGx6">明治軒(心齋橋)
-		  </a> </h3>
+          </a> </h3>
           <p>這家老字號西餐廳是愛繆在關西活動時期非常喜愛造訪的地下美食，她最推薦這裡招牌的「串炸配蛋包飯（オムライスに串カツ）」，去心齋橋一定要去朝聖這套「愛繆套餐」。</p> 
-		  
+          
         </article>
                   
         <article class="setup-card">
@@ -868,25 +1028,25 @@
           <h3>8. <a href="https://maps.google.com/?cid=18399541646737099890">甲子園口 曼波隧道 (Mambō Tunnel)</a></h3>
           <p>這是愛繆在節目與日記裡提過、她學生時代的日常通道。西宮有著名的低矮地下道（マンボウトンネル），而位於甲子園口這一座，是她以前走路去西宮 Gardens 電影院時一定會穿過、極具動漫感且充滿少女回憶的祕密基地。</p>
         </article>
-		<article class="setup-card">
+        <article class="setup-card">
           <h3>9. <a href="https://maps.google.com/?cid=1531779005679541801">甲子園飯店 (中華料理)</a></h3>
           <p>這家中華料理老店是愛繆出道前、尚未走紅時在老家打工過的餐廳。身為專業 AIM，來這裡點一盤她當年一邊揮汗打工、一邊夢想著音樂未來的中華料理，是最能感受天后成名前足跡的私房聖地。</p>
         </article>
-		<article class="setup-card">
+        <article class="setup-card">
           <h3>10. <a href="https://maps.app.goo.gl/AY5VrU8Apjt7QFz7A">西宮神社 (社務所)</a></h3>
           <p>西宮最著名的えべっさん總本店。愛繆在 2022 年回到家鄉甲子園舉辦歷史性個人彈唱演唱會《-サーチライト-》前夕，曾特別來到這裡祈求演出順利，並在社務所內留下了一塊簽有白色手印的珍貴許願繪馬。</p>
         </article>
-		<article class="setup-card">
+        <article class="setup-card">
           <h3>11. <a href="https://maps.app.goo.gl/APebxARWyWccvNSJ7">鳴尾濱臨海公園 (Naruo Beach Park)</a></h3>
           <p>這是愛繆在家鄉最愛的放空看海祕密基地。更重要的是，她那首紅透半邊天的神曲《マリーゴールド》（金盞花）MV 的開頭與許多靈感畫面，就是她在這片家鄉的海風吹拂中醞釀出來的。來到這裡看著海，耳邊自然就會響起那段旋律。</p>
         </article>
-		<article class="setup-card">
+        <article class="setup-card">
           <h3>12. <a href="https://maps.app.goo.gl/Q4aaUUwRiWrNYb2H9">梅田 堂島川 (Dojima River) 與 水晶橋 (Suishobashi) 周邊</a></h3>
           <p>在她無名時期，除了在車站前彈唱，堂島川畔也是她很常拿著吉他默默創作、寫歌看著河水流逝的地方。這條河與周邊的水晶橋，充滿了她當時一邊迷惘、一邊對未來音樂路抱持巨大期望的青澀淚水與汗水。</p>
         </article>
-		<article class="setup-card">
-          <h3>13. <a href="https://maps.app.goo.gl/mK2qU3mVXHMNqWV59">鴨川（三條大橋／四條河原町周邊）</a></h3>
-          <p>京都雖然不是她的出身地，但鴨川畔一向是關西創作歌手最愛的靈感催化劑。愛繆在京都巡演或私下旅遊時，也很喜歡在這裡散步、感受關西特有的微風與日常感。</p>
+        <article class="setup-card">
+          <h3>13. <a href="https://koshien-rekishikan.hanshin.co.jp › global ">朝聖愛繆主場！直擊甲子園牛棚選手席</a></h3>
+          <p>親臨愛繆（Aimyon）神級演唱會勝地！帶你直擊阪神甲子園球場的牛棚與選手席，感受搖滾熱血與棒球魂的完美交織。</p>
         </article>
       </div>
     </section>
@@ -911,7 +1071,8 @@
       // Replace this with your published Google Sheet CSV URL.
       // Format: https://docs.google.com/spreadsheets/d/e/{PUBLISH_ID}/pub?gid=0&single=true&output=csv
       sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRD3xLNcLpXzjHmJ1G76pIIuOcpOthPl58JJ5sACgQdLyUoYhvFQtd1Ym8IjSRgKwOzflgp2kGB_Put/pub?gid=1760349296&single=true&output=csv",
-      dateLocale: "zh-TW"
+      dateLocale: "zh-TW",
+      concertDate: "2026-07-14"
     };
 
     const SAMPLE_ROWS = [
@@ -948,6 +1109,10 @@
       reloadButton: document.querySelector("#reloadButton"),
       themeCount: document.querySelector("#themeCount"),
       photoCount: document.querySelector("#photoCount"),
+      concertDays: document.querySelector("#concertDays"),
+      concertStatus: document.querySelector("#concertStatus"),
+      concertDuration: document.querySelector("#concertDuration"),
+      concertNote: document.querySelector("#concertNote"),
       lightbox: document.querySelector("#lightbox"),
       lightboxImage: document.querySelector("#lightboxImage"),
       lightboxCaption: document.querySelector("#lightboxCaption"),
@@ -957,7 +1122,9 @@
     async function init() {
       await loadRows();
       bindEvents();
+      renderCountdown();
       render();
+      setInterval(renderCountdown, 60 * 60 * 1000);
     }
 
     function bindEvents() {
@@ -1243,6 +1410,62 @@
       renderStats();
       renderTopics();
       renderTimeline();
+    }
+
+    function renderCountdown() {
+      const today = startOfDate(new Date());
+      const concertDate = parseDateOnly(CONFIG.concertDate);
+      const dayDiff = Math.round((concertDate - today) / 86400000);
+
+      if (dayDiff >= 0) {
+        els.concertDays.textContent = String(dayDiff);
+        els.concertStatus.textContent = "甲子園演唱會倒數";
+        els.concertDuration.textContent = `${dayDiff} 天`;
+        els.concertNote.textContent = "第一天的甲子園演唱會";
+        return;
+      }
+
+      const elapsed = getCalendarDiff(concertDate, today);
+      els.concertDays.textContent = String(Math.abs(dayDiff));
+      els.concertStatus.textContent = "甲子園演唱會已歷時";
+      els.concertDuration.textContent = formatCalendarDiff(elapsed);
+      els.concertNote.textContent = "從 2026/7/14 開始累積的回憶";
+    }
+
+    function startOfDate(date) {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+
+    function parseDateOnly(value) {
+      const [year, month, day] = value.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    }
+
+    function getCalendarDiff(fromDate, toDate) {
+      let years = toDate.getFullYear() - fromDate.getFullYear();
+      let months = toDate.getMonth() - fromDate.getMonth();
+      let days = toDate.getDate() - fromDate.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        const previousMonth = new Date(toDate.getFullYear(), toDate.getMonth(), 0);
+        days += previousMonth.getDate();
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      return { years, months, days };
+    }
+
+    function formatCalendarDiff({ years, months, days }) {
+      const parts = [];
+      if (years) parts.push(`${years} 年`);
+      if (months) parts.push(`${months} 個月`);
+      if (days || !parts.length) parts.push(`${days} 天`);
+      return parts.join(" ");
     }
 
     function renderStats() {
