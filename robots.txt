@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://live.itigre.com/AIM/sitemap.xml
+Sitemap: https://live.itigre.com/m2m/sitemap.xml
