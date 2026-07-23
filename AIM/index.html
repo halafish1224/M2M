@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AIMYON 2026 “、、、” 甲子園ライブレポート｜台湾からの参戦記録</title>
-  <meta name="description" content="台湾からAIMYON 2026年7月14日・15日の阪神甲子園球場10周年ライブ「、、、」に参戦した記録。フライト欠航からの奇跡、アリーナ最前列での感動、そして忘れられない夏の夜の思い出。">
-  <meta name="keywords" content="AIMYON, あいみょん, 甲子園, 阪神甲子園球場, ライブレポート, 台湾, 祇園うちわ, 関西, 台湾人, 大阪, 京都, 神戸, 10周年, 夏の夜, 月夜, ブルーアワー, アコースティック, フィルム写真, はるなつあきふゆ, 一期一会">
+  <meta name="description" content="台湾からAIMYON 2026年7月14日・15日の阪神甲子園球場10周年ライブ「、、、」に参戦した記録。アリーナ最前列での感動、祇園うちわの奇跡、そして夜空に咲く夏の思い出。">
+  <meta name="keywords" content="AIMYON, あいみょん, 甲子園, 阪神甲子園球場, ライブレポート, 台湾, 祇園うちわ, 関西, 台湾人, 大阪, 京都, 神戸, 10周年, 夏の夜, 月夜, ブルーアワー, アコースティック, フィルム写真, 花火, 一期一会">
   <meta name="author" content="Taiwanese AIM">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="format-detection" content="telephone=no">
@@ -18,7 +18,7 @@
   
   <!-- Open Graph for Twitter / LINE / Japanese Social Media -->
   <meta property="og:title" content="AIMYON 2026 “、、、” 甲子園ライブレポート｜台湾からの参戦記録">
-  <meta property="og:description" content="甲子園のアリーナ最前列で迎えた奇跡の夜。祇園の団扇を持った隣のファンとの出会い、心地よい関西の夜風、忘れられない10周年の夏の思い出。">
+  <meta property="og:description" content="甲子園のアリーナ最前列で迎えた奇跡の夜。祇園の団扇を持った隣のファンとの出会い、心地よい関西の夜風、夜空を見上げた10周年の思い出。">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="AIMYON Live Report 2026">
@@ -64,6 +64,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+TC:wght@400;700&family=Yomogi&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       color-scheme: light;
@@ -72,9 +73,9 @@
       --paper: #fbf8ee;
       --field: #0d3830;
       --grass: #23745f;
-      --chalk: #f5f0df;
       --mustard: #d4a329;
       --coral: #e45f48;
+      --night-sky: #091a24;
       --line: rgba(23, 34, 30, .14);
       --radius: 8px;
       --max: 960px;
@@ -91,9 +92,9 @@
       margin: 0;
       font-family: 'Noto Sans JP', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
       color: var(--ink);
-      line-height: 1.7;
+      line-height: 1.8;
       background:
-        linear-gradient(90deg, rgba(13, 56, 48, .05) 1px, transparent 1px) 0 0 / 22px 22px,
+        linear-gradient(90deg, rgba(13, 56, 48, .04) 1px, transparent 1px) 0 0 / 22px 22px,
         linear-gradient(180deg, #fffdf6 0%, #f7f1df 48%, #ecdfbd 100%);
     }
     
@@ -101,51 +102,109 @@
       font-family: 'Yomogi', cursive;
     }
 
+    /* 固定雙語切換按鈕浮籤 */
+    .lang-switcher-bar {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      background: rgba(13, 56, 48, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 4px 6px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.25s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--mustard);
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    /* 語系隱藏/顯示控制 */
+    body[data-lang="ja"] .lang-zh { display: none !important; }
+    body[data-lang="zh"] .lang-ja { display: none !important; }
+
+    /* Hero Header */
     .hero {
-      min-height: 55vh;
+      min-height: 60vh;
       display: grid;
       align-items: center;
       position: relative;
       overflow: hidden;
       color: white;
-      background: linear-gradient(135deg, #274a42 0%, #0d3830 40%, #061f1d 100%);
+      background: linear-gradient(135deg, #102d26 0%, #081820 60%, #030b0e 100%);
       padding: 4rem 2rem;
       text-align: center;
+      cursor: pointer;
     }
-    
-    .hero::before {
-      content: "";
+
+    #star-canvas {
       position: absolute;
-      inset: auto -8vw -16vw -8vw;
-      height: 46vw;
-      min-height: 280px;
-      background: repeating-conic-gradient(from 45deg at 50% 100%, rgba(245, 240, 223, .1) 0 1deg, transparent 1deg 13deg);
-      clip-path: ellipse(58% 44% at 50% 100%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
       pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
     }
 
     .eyebrow {
       display: inline-block;
       color: #13211e;
       background: var(--mustard);
-      border: 2px solid rgba(255, 255, 255, .32);
+      border: 2px solid rgba(255, 255, 255, .4);
       border-radius: 999px;
-      padding: .3rem .7rem;
+      padding: .35rem .9rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     h1 {
       margin: 0 auto;
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.15;
+      font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+      line-height: 1.2;
       max-width: 900px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
 
     .hero-subtitle {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, .8);
+      margin-top: 1.2rem;
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, .88);
+      letter-spacing: 0.05em;
+    }
+
+    .click-hint {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.12);
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255,255,255,0.3);
+      color: #ffd875;
     }
 
     main {
@@ -159,26 +218,26 @@
       background: white;
       border: 3px solid var(--ink);
       border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-      padding: 2.5rem 3rem;
+      padding: 2.8rem 3rem;
       margin-bottom: 3.5rem;
-      box-shadow: 6px 6px 0px var(--mustard);
+      box-shadow: 7px 7px 0px var(--mustard);
       position: relative;
     }
 
     .special-thanks::before {
       content: '🌙';
-      font-size: 2rem;
+      font-size: 2.2rem;
       position: absolute;
-      top: -15px;
-      left: 20px;
+      top: -18px;
+      left: 24px;
       background: white;
       border-radius: 50%;
-      padding: 5px;
+      padding: 4px;
     }
 
     .special-thanks h2 {
       color: var(--coral);
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       margin-top: 0;
       border-bottom: 2px dashed var(--coral);
       padding-bottom: 0.5rem;
@@ -188,232 +247,489 @@
 
     .special-thanks p {
       font-size: 1.1rem;
-      line-height: 1.9;
-      color: #333;
+      line-height: 2;
+      color: #2b2b2b;
     }
 
     .highlight-jp {
-      background: linear-gradient(transparent 60%, rgba(247, 169, 52, 0.4) 60%);
+      background: linear-gradient(transparent 60%, rgba(247, 169, 52, 0.45) 60%);
       font-weight: bold;
       padding: 0 4px;
     }
 
     /* 內文文章區塊 */
     .article-content {
-      background: rgba(255, 253, 246, .85);
+      background: rgba(255, 253, 246, .9);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 2.5rem 3rem;
-      margin-bottom: 3rem;
-      box-shadow: 0 10px 28px rgba(20, 39, 33, .08);
+      padding: 2.8rem 3rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 10px 30px rgba(20, 39, 33, .07);
     }
 
     .article-content h3 {
-      font-size: 1.45rem;
+      font-size: 1.48rem;
       color: var(--field);
       border-left: 5px solid var(--coral);
       padding-left: 1rem;
-      margin-top: 2.8rem;
+      margin-top: 3rem;
       margin-bottom: 1.2rem;
     }
 
-    /* 專屬中文註解區塊 */
+    /* 歌迷共鳴迴響區塊 */
+    .fan-resonance-box {
+      background: #f3efe0;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      border: 1px dashed #c2b9a1;
+    }
+
+    .fan-resonance-box h4 {
+      margin-top: 0;
+      color: var(--field);
+      font-size: 1.15rem;
+    }
+
+    .fan-quote {
+      font-style: italic;
+      color: #4a5450;
+      font-size: 0.96rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--mustard);
+    }
+
+    /* 註解區塊 */
     .personal-note {
-      margin-top: 1rem;
-      margin-bottom: 1.8rem;
-      padding: 0.7rem 1rem;
+      margin-top: 1.2rem;
+      margin-bottom: 2rem;
+      padding: 0.8rem 1.2rem;
       background: rgba(13, 56, 48, 0.05);
-      border-left: 3px solid var(--field);
-      font-size: 0.92rem;
+      border-left: 4px solid var(--field);
+      font-size: 0.95rem;
       color: var(--muted);
       border-radius: 0 4px 4px 0;
-      font-family: 'Noto Sans TC', sans-serif;
     }
 
-    /* 質感圖文相片卡片（保證原圖比例不裁切） */
+    /* 拍立得相片卡片 */
     .figure-card {
       background: #ffffff;
-      padding: 14px 14px 18px 14px;
-      margin: 2rem 0;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
+      padding: 16px 16px 20px 16px;
+      margin: 2.2rem 0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
       border: 1px solid #eae5d9;
-      border-radius: 6px;
+      border-radius: 4px;
       transform: rotate(-0.6deg);
       transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+      position: relative;
+      cursor: zoom-in;
     }
 
-    .figure-card:nth-of-type(even) {
-      transform: rotate(0.6deg);
+    .figure-card::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 90px;
+      height: 22px;
+      background: rgba(245, 230, 185, 0.7);
+      border: 1px dashed rgba(200, 180, 130, 0.5);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      z-index: 2;
     }
 
-    .figure-card:hover {
-      transform: scale(1.015) rotate(0deg);
-      z-index: 5;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-    }
+    .figure-card:nth-of-type(even) { transform: rotate(0.6deg); }
+    .figure-card:hover { transform: scale(1.018) rotate(0deg); z-index: 5; box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14); }
 
-    /* 關鍵修復：寬度自適應、高度自動、徹底防止切邊 */
     .figure-card img {
       width: 100%;
       height: auto;
       object-fit: contain;
-      border-radius: 4px;
+      border-radius: 2px;
       display: block;
     }
 
     .figure-caption {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 14px;
       margin-bottom: 0;
-      font-size: 0.95rem;
-      color: #555;
+      font-size: 0.98rem;
+      color: #444;
       letter-spacing: 0.02em;
     }
 
-    /* 雙圖並排網格：避免高低差拉伸裁切 */
     .figure-grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin: 2rem 0;
+      gap: 2rem;
+      margin: 2.2rem 0;
       align-items: start;
     }
 
-    .figure-grid-2 .figure-card {
-      margin: 0;
+    .figure-grid-2 .figure-card { margin: 0; }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 12, 10, 0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox-modal img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      font-family: sans-serif;
     }
 
     @media (max-width: 768px) {
       .special-thanks, .article-content { padding: 1.5rem; }
-      .figure-card { margin: 1.4rem 0; padding: 10px 10px 14px 10px; }
+      .figure-card { margin: 1.5rem 0; padding: 12px 12px 16px 12px; }
       .figure-grid-2 { gap: 1.2rem; }
     }
   </style>
 </head>
-<body>
+<body data-lang="ja">
 
-  <header class="hero">
-    <div style="position: relative; z-index: 10;">
+  <!-- 固定語言切換器 -->
+  <div class="lang-switcher-bar handwritten">
+    <button class="lang-btn active" onclick="switchLang('ja')">🇯🇵 日本語</button>
+    <button class="lang-btn" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+  </div>
+
+  <!-- Hero Header -->
+  <header class="hero" id="hero-header">
+    <canvas id="star-canvas"></canvas>
+    <div class="hero-content">
       <span class="eyebrow handwritten">2026.07.14 - 15</span>
       <h1 class="handwritten">AIMYON 10th Anniversary LIVE<br>「、、、」in 阪神甲子園球場</h1>
-      <p class="hero-subtitle handwritten">台湾からの奇跡の参戦記録 🇹🇼 ✈️ 🇯🇵</p>
+      
+      <p class="hero-subtitle handwritten lang-ja">台湾からの奇跡の参戦記録 🇹🇼 ✈️ 🇯🇵</p>
+      <p class="hero-subtitle handwritten lang-zh">來自台灣的奇蹟參戰紀錄 🇹🇼 ✈️ 🇯🇵</p>
+      
+      <span class="click-hint handwritten lang-ja">✨ 夜空をタップすると花火が咲きます 🎆</span>
+      <span class="click-hint handwritten lang-zh">✨ 點擊夜空即可綻放煙花 🎆</span>
     </div>
   </header>
 
   <main>
     
-    <!-- 日文版專屬感性前言 -->
+    <!-- 前言 -->
     <section class="special-thanks handwritten">
-      <h2>忘れられない、あの美しかった夏の夜</h2>
-      <p>
-        2026年7月14日、甲子園の夜風とアリーナの熱気が交差したあの夜。<br><br>
-        もし、いつかこのページをあなたが目にする日が来たら――そんなことを少しだけ思いながら、あの夏の日の記憶をそっとここに綴っておきます。<br><br>
-        偶然隣の席になり、ふと目に留まったあなたの<span class="highlight-jp">「祇園の団扇（うちわ）」</span>。「もしかして京都から来られたのかな？」と密かに好奇心が膨らむと同時に、台湾から参戦した私は「今夜はどんな風に一緒にこの音楽を楽しめるんだろう！」と期待で胸がいっぱいでした。知識や言葉の壁を越えて、あなたの気さくで温かい笑顔に触れて、そのワクワク感は一気に最高潮へ。ステージへ向かう彼女がすぐそばを通ったあの瞬間、言葉を交わさずとも自然と前をゆずり合ったあの小さなやり取りや、同じ音楽に心揺さぶられたあの時間は、私にとってかけがえのない宝物です。<br><br>
-        終演後に一緒に撮ってくれた写真（後ろのおじさんの表情も最高でしたね！笑）を見るたびに、あの夜の熱気と心地よい夜風が鮮やかに蘇ってきます。<br><br>
-        思いがけない偶然が重なって生まれた、特別で忘れられない経験。あなたのおかげで、この甲子園での10周年ライブが、私にとって一生大切にしたい最も美しい夏の思い出になりました。またいつか、同じように音楽が響く場所で、新しい奇跡が重なる日を密かに楽しみにしています。
-      </p>
-
-      <!-- 值得紀念：象徵十週年回憶的主視覺照片（全圖完整呈現） -->
-      <div class="figure-card">
-        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784773114/Gemini_Generated_Image_6c6m4j6c6m4j6c6m_g87zse.png" alt="AIMYON 阪神甲子園球場 10周年記念ライブ メモリアルショット">
-        <p class="figure-caption handwritten">甲子園十週年の美好記憶</p>
+      
+      <!-- 日文版前言 -->
+      <div class="lang-ja">
+        <h2>忘れられない、あの美しかった夏の夜</h2>
+        <p>
+          2026年7月14日、甲子園の夜風とアリーナの熱気が交差したあの夜。<br><br>
+          もし、いつかこのページをあなたが目にする日が来たら――そんなことを少しだけ思いながら、あの夏の日の記憶をそっとここに綴っておきます。<br><br>
+          偶然隣の席になり、ふと目に留まったあなたの<span class="highlight-jp">「祇園の団扇（うちわ）」</span>。「もしかして京都から来られたのかな？」と密かに好奇心が膨らむと同時に、台湾から参戦した私は「今夜はどんな風に一緒にこの音楽を楽しめるんだろう！」と期待で胸がいっぱいでした。知識や言葉の壁を越えて、あなたの気さくで温かい笑顔に触れて、そのワクワク感は一気に最高潮へ。ステージへ向かう彼女がすぐそばを通ったあの瞬間、言葉を交わさずとも自然と前をゆずり合ったあの小さなやり取りや、同じ音楽に心揺さぶられたあの時間は、私にとってかけがえのない宝物です。<br><br>
+          終演後に一緒に撮ってくれた写真（後ろのおじさんの表情も最高でしたね！笑）を見るたびに、あの夜の熱気と心地よい夜風が鮮やかに蘇ってきます。<br><br>
+          思いがけない偶然が重なって生まれた、特別で忘れられない経験。あなたのおかげで、この甲子園での10周年ライブが、私にとって一生大切にしたい最も美しい夏の思い出になりました。またいつか、同じように音楽が響く場所で、新しい奇跡が重なる日を密かに楽しみにしています。
+        </p>
       </div>
 
-      <!-- 個人中文註解 -->
+      <!-- 中文版前言 -->
+      <div class="lang-zh">
+        <h2>難以忘懷，那晚無比美麗的夏夜</h2>
+        <p>
+          2026年7月14日，甲子園的夜風與搖滾區熱氣交織的那個夜晚。<br><br>
+          如果有一天，妳偶然看見了這個頁面——懷著這樣微小的期待，我將那天夏夜的回憶輕輕記在這裡。<br><br>
+          偶然坐在相鄰的位置，目光被妳手中的<span class="highlight-jp">「祇園扇子」</span>吸引。「難道妳是從京都來的嗎？」心中悄悄升起好奇的同時，遠從台灣而來的我也滿心期待：「今晚我們要如何一起享受這場音樂呢！」跨越了語言與陌生的界線，在妳親切溫暖的笑容中，那份興奮感瞬間達到了頂峰。當 Aimyon 走向舞台、從我們身旁經過的那一刻，我們不約而同自然讓位的小默契，以及被同一首歌震撼心靈的瞬間，對我來說都是無可替代的寶物。<br><br>
+          每當翻開演唱會後我們拍下的合照（後面阿伯的表情真的太搶戲了！笑），那晚的熱氣與舒適的夜風就會鮮明地浮現。<br><br>
+          種種意想不到的偶然交織在一起，創造了這段特別又難忘的經歷。因為妳，這場甲子園 10 週年演唱會成了我一生中最想珍藏的美好夏日回憶。期待未來的某一天，在同樣迴盪著音樂的地方，我們能再次重逢。
+        </p>
+      </div>
+
+      <div class="figure-card">
+        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784773114/Gemini_Generated_Image_6c6m4j6c6m4j6c6m_g87zse.png" alt="AIMYON 阪神甲子園球場 10周年記念ライブ">
+        <p class="figure-caption handwritten lang-ja">甲子園十週年の美好記憶</p>
+        <p class="figure-caption handwritten lang-zh">甲子園十週年的美好記憶</p>
+      </div>
+
       <div class="personal-note">
         📝 <strong>留白處的夜風，收藏著夏日回憶。</strong>
       </div>
     </section>
 
-    <!-- 主內文：夾敘夾議排版（融入 Blue Hour 與 関西夜風） -->
+    <!-- 主內文 -->
     <article class="article-content">
-      <h2 style="font-size: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.5rem; margin-top:0;">【ライブレポート】フライト欠航から生まれた奇跡：アリーナ最前列の幸運！</h2>
       
-      <h3>01 | 遅れた出発、幸運に恵まれた旅の始まり</h3>
-      <p>余裕を持っていたはずのひとり旅が、人生初の「台湾発フライト欠航」により完全に狂ってしまいました。2日遅れの出発となり、スケジュールは極限まで圧縮。でも、日本に足を踏み入れた瞬間から、すべての不安が幸運の女神によって優しく解きほぐされるように、最終的にはスムーズで完璧な体験となりました。</p>
-      <p>夕暮れ時の美しいブルーアワー（Blue Hour）に包まれ始めた甲子園の街並みは、まるでフィルム写真の1コマのように静かに私を迎え入れてくれました。</p>
+      <div class="lang-ja">
+        <h2 style="font-size: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.5rem; margin-top:0;">【ライブレポート】フライト欠航から生まれた奇跡：アリーナ最前列の幸運！</h2>
+        
+        <h3>01 | 遅れた出発、幸運に恵まれた旅の始まり</h3>
+        <p>余裕を持っていたはずのひとり旅が、人生初の「台湾発フライト欠航」により完全に狂ってしまいました。2日遅れの出発となり、スケジュールは極限まで圧縮。でも、日本に足を踏み入れた瞬間から、すべての不安が幸運の女神によって優しく解きほぐされるように、最終的にはスムーズで完璧な体験となりました。</p>
+        <p>夕暮れ時の美しいブルーアワー（Blue Hour）に包まれ始めた甲子園の街並みは、まるでフィルム写真の1コマのように静かに私を迎え入れてくれました。</p>
+      </div>
 
-      <!-- 夾敘夾議：啟程與抵達畫面 -->
+      <div class="lang-zh">
+        <h2 style="font-size: 2rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.5rem; margin-top:0;">【參戰日誌】班機取消催生的奇跡：搖滾區首排的極致幸運！</h2>
+        
+        <h3>01 | 遲到的啟程，被幸運眷顧的旅程開端</h3>
+        <p>原本規劃從容的獨旅，卻因為人生第一次遇到「台灣出發班機取消」而完全被打亂。延後了兩天出發，行程被壓縮到極限。然而，從踏上日本土地的那刻起，所有的不安彷彿都被幸運女神溫柔抚平，最終演變成極其流暢而完美的體驗。</p>
+        <p>當夕陽餘暉染上美麗的藍調時刻 (Blue Hour)，甲子園的街景就像底片相機捕捉下的那一格畫面，安靜地迎接我的到來。</p>
+      </div>
+
+      <!-- 啟程與抵達畫面 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_125134_xuev27.jpg" alt="12:51 旅程啟程與街景 - 台湾から関西空港へ">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_125134_xuev27.jpg" alt="12:51 Departure">
           <p class="figure-caption handwritten">12:51 | 旅程啟程與街景</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_154319_fojjlh.jpg" alt="15:43 抵達甲子園周邊 - 阪神甲子園球場前">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_154319_fojjlh.jpg" alt="15:43 Arrival">
           <p class="figure-caption handwritten">15:43 | 抵達甲子園周邊氛圍</p>
         </div>
       </div>
 
-      <div class="personal-note">
-        📝 <strong>【註解】：</strong>記錄人生首次遇到班機取消的波折，行程雖被壓縮，但在日本的體驗最終非常完美。融入 Blue Hour 與底片感意象。
+      <div class="lang-ja">
+        <h3>02 | アリーナ最前列の視界と、奇跡のハイタッチ</h3>
+        <p>阪神甲子園球場に入り、階段を降りてアリーナ席に近づくにつれて、心臓の鼓動が早くなりました。まさかこんなに近いなんて！昔の小さなライブハウスほどのゼロ距離ではないけれど、4万人を収容する巨大な球場で、誰にも視界を遮られることなく最前列に座れたのは、言葉にできないほどの幸運でした。</p>
+        <p>そして何より夢のようだったのは、初日の開演直前、ステージへ向かうあいみょんとハイタッチできたこと！手のひらにしっかりと残るあの感触と感動は、今思い出しても信じられません。</p>
       </div>
 
-      <h3>02 | アリーナ最前列の視界と、奇跡のハイタッチ</h3>
-      <p>阪神甲子園球場に入り、階段を降りてアリーナ席に近づくにつれて、心臓の鼓動が早くなりました。まさかこんなに近いなんて！昔の小さなライブハウスほどのゼロ距離ではないけれど、4万人を収容する巨大な球場で、誰にも視界を遮られることなく最前列に座れたのは、言葉にできないほどの幸運でした。</p>
-      <p>そして何より夢のようだったのは、初日の開演直前、ステージへ向かうあいみょんとハイタッチできたこと！手のひらにしっかりと残るあの感触と感動は、今思い出しても信じられません。</p>
+      <div class="lang-zh">
+        <h3>02 | 搖滾區首排視野，與夢幻般的擊掌瞬間</h3>
+        <p>步入阪神甲子園球場，沿著階梯走近搖滾區座位時，心跳不斷加速。萬萬沒想到居然離舞台這麼近！雖然不像小型 Livehouse 那樣近在咫尺，但在容納 4 萬人的巨大球場中，能坐在毫無遮蔽的首排，真的是無法言喻的幸運。</p>
+        <p>最像做夢的一刻，莫過於第一天開演前，走向舞台的 Aimyon 竟然與我擊掌！手掌心留下的觸感與震撼，至今想起來依然令人難以置信。</p>
+      </div>
 
-      <!-- 夾敘夾議：入場期待與搖滾區首排視野 -->
+      <!-- 入場與視野 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_160617_akssrm.jpg" alt="16:06 甲子園アリーナ入場前の期待">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_160617_akssrm.jpg" alt="16:06 Entry">
           <p class="figure-caption handwritten">16:06 | 入場前的期待與留影</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163903_hsx9si.jpg" alt="16:39 阪神甲子園球場 周辺の記念モニュメント">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163903_hsx9si.jpg" alt="16:39 Scene">
           <p class="figure-caption handwritten">16:39 | 球場周遭與紀念佈置</p>
         </div>
       </div>
 
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163912_zjsmuo.jpg" alt="16:39 あいみょん10周年甲子園ライブ開演直前">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163912_zjsmuo.jpg" alt="16:39 Countdown">
           <p class="figure-caption handwritten">16:39 | 迎向十週年紀念開演</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_171152_twwn7y.jpg" alt="17:11 甲子園アリーナ最前列からの絶景視野">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_171152_twwn7y.jpg" alt="17:11 Arena View">
           <p class="figure-caption handwritten">17:11 | 搖滾首排的絕佳視野</p>
         </div>
       </div>
 
-      <div class="personal-note">
-        📝 <strong>【註解】：</strong>甲子園搖滾區首排的震撼視角，以及開演前幸運與 Aimyon 擊掌的夢幻瞬間。
+      <div class="lang-ja">
+        <h3>03 | 4万人との共鳴、夏の夜の美しい出会い</h3>
+        <p>これは私にとって人生初の日本でのライブ参戦。満員の日本のファンと一緒にライブを楽しむ感覚は意外なほど心地よく、それぞれが自分のスタイルで音楽に没頭していました。</p>
+        <p>この空間が、思いがけないご縁も運んでくれました。冒頭にも書いたように、隣の席に座っていた素敵な女性ファンとの出会いです。アコースティックな温もりのある旋律と、京都や神戸へと吹き抜ける関西の心地よい夜風に包まれて生まれたこの繋がりは、今回の旅で最も美しいサプライズでした。彼女の親切で明るい笑顔のおかげで、外国人の私でも最高の時間を過ごすことができました。</p>
       </div>
 
-      <h3>03 | 4万人との共鳴、夏の夜の美しい出会い</h3>
-      <p>これは私にとって人生初の日本でのライブ参戦。満員の日本のファンと一緒にライブを楽しむ感覚は意外なほど心地よく、それぞれが自分のスタイルで音楽に没頭していました。</p>
-      <p>この空間が、思いがけないご縁も運んでくれました。冒頭にも書いたように、隣の席に座っていた素敵な女性ファンとの出会いです。アコースティックな温もりのある旋律と、京都や神戸へと吹き抜ける関西の心地よい夜風に包まれて生まれたこの繋がりは、今回の旅で最も美しいサプライズでした。彼女の親切で明るい笑顔のおかげで、外国人の私でも最高の時間を過ごすことができました。</p>
+      <div class="lang-zh">
+        <h3>03 | 四萬人的共鳴，夏夜裡美好的相遇</h3>
+        <p>這是我人生中第一次在日本參加演唱會。與全場滿座的日本歌迷一同沉浸在音樂中的感覺格外舒適自在，每個人都以自己的方式投入其中。</p>
+        <p>這個空間也帶給我意想不到的緣分——坐在旁邊那位帶著「祇園扇子」的親切女孩。在原聲吉他溫暖的旋律與吹向京都神戶的關西夜風中，這份跨越語言的連結是整趟旅程中最美麗的驚喜。多虧了她熱情開朗的笑容，讓身為外國人的我也度過了最棒的時光。</p>
+      </div>
 
-      <!-- 夾敘夾議：散場夜色與夏夜餘韻 -->
+      <!-- 散場夜色 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_211048_kbjeeu.jpg" alt="21:10 ライブ終演後 阪神甲子園球場の夜景と夜風">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_211048_kbjeeu.jpg" alt="21:10 Night Scene">
           <p class="figure-caption handwritten">21:10 | 散場後的甲子園夜色</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712281/IMG_20260714_211141_qtug55.jpg" alt="21:11 甲子園散場後の夏の夜の余韻">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712281/IMG_20260714_211141_qtug55.jpg" alt="21:11 Night Atmosphere">
           <p class="figure-caption handwritten">21:11 | 散場後的夜景與餘韻</p>
         </div>
       </div>
 
-      <div class="personal-note">
-        📝 <strong>【註解】：</strong>人生首場日本演唱會的舒適氛圍，以及與身旁女歌迷相遇的美好夏夜回憶。帶入關西夜風與原聲質感。
+      <!-- 歌迷共鳴迴響區塊 -->
+      <div class="fan-resonance-box">
+        <h4 class="handwritten lang-ja">🌌 甲子園の夜空に響いた、みんなの余韻</h4>
+        <h4 class="handwritten lang-zh">🌌 響徹甲子園夜空的全場迴響</h4>
+        
+        <div class="fan-quote lang-ja">「甲子園の夜風を浴びながら聴くあいみょんの歌声、一生忘れません。」</div>
+        <div class="fan-quote lang-zh">「伴隨著甲子園夜風聽著 Aimyon 的歌聲，這輩子都不會忘記。」</div>
+        
+        <div class="fan-quote lang-ja">「4万人で同じ空を見上げたあの時間。隣の席の人と笑顔で目配せした瞬間、音楽の凄さを実感した。」</div>
+        <div class="fan-quote lang-zh">「4萬人一同仰望同一片夜空的時光。與身旁歌迷相視一笑的瞬間，深感音樂的力量。」</div>
       </div>
 
-      <h3>04 | 体力の限界に挑んだ2日目、悔いのない10周年</h3>
-      <p>2日目は、過密スケジュールの疲れに加え、日本のライブは「全員がずっと立ちっぱなし」であることに気づき、日中の観光と合わせて体力的な大挑戦となりました！セトリに入っていなくて少し残念だった曲もあるけれど、この記念すべき10周年の初日（しかも甲子園で！）に、これほど多くの幸運な出来事に出会え、心はすでに満ち足りた思いでいっぱいです。</p>
+      <div class="lang-ja">
+        <h3>04 | 体力の限界に挑んだ2日目、悔いのない10周年</h3>
+        <p>2日目は、過密スケジュールの疲れに加え、日本のライブは「全員がずっと立ちっぱなし」であることに気づき、日中の観光と合わせて体力的な大挑戦となりました！セトリに入っていなくて少し残念だった曲もあるけれど、この記念すべき10周年の初日（しかも甲子園で！）に、これほど多くの幸運な出来事に出会え、心はすでに満ち足りた思いでいっぱいです。</p>
+      </div>
 
-      <!-- 夾敘夾議：最終紀念時刻 -->
+      <div class="lang-zh">
+        <h3>04 | 挑戰體力極限的第二天，毫無遺憾的十週年</h3>
+        <p>第二天，緊湊行程的疲憊加上發現日本演唱會「全場歌迷自始至終全程站立」，配合白天的觀光，簡直是體力的大考驗！雖然歌單裡有些沒聽到的遺珠歌曲，但在這個值得紀念的 10 週年首日（還是在甲子園！），能遇到這麼多幸運與美好，心中早已無比滿足。</p>
+      </div>
+
+      <!-- 最終紀念 -->
       <div class="figure-card">
-        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712160/IMG_20260714_213551_bqdsai.jpg" alt="21:35 阪神甲子園球場 10周年ライブ参戦達成">
+        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712160/IMG_20260714_213551_bqdsai.jpg" alt="21:35 Koshien Night">
         <p class="figure-caption handwritten">21:35 | 甲子園夜色與紀念時刻</p>
       </div>
 
       <div class="personal-note">
-        📝 <strong>【註解】：</strong>第二天體力大極限（全場站立與緊湊行程），十週年首場雖然有遺珠曲目但毫無遺憾。
+        📝 <strong>【註解】：</strong>第二天體力大極限，十週年首場雖然有遺珠曲目但毫無遺憾。
       </div>
     </article>
 
   </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoomed Photo">
+  </div>
+
+  <script>
+    // 語言切換邏輯
+    function switchLang(lang) {
+      document.body.setAttribute('data-lang', lang);
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      if(lang === 'ja') {
+        document.querySelectorAll('.lang-btn')[0].classList.add('active');
+      } else {
+        document.querySelectorAll('.lang-btn')[1].classList.add('active');
+      }
+      localStorage.setItem('preferred_lang', lang);
+    }
+
+    // 讀取記憶中的語言偏好
+    const savedLang = localStorage.getItem('preferred_lang');
+    if (savedLang) {
+      switchLang(savedLang);
+    }
+
+    // Canvas 星空與煙火
+    const canvas = document.getElementById('star-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resizeCanvas() {
+      const hero = document.getElementById('hero-header');
+      width = canvas.width = hero.offsetWidth;
+      height = canvas.height = hero.offsetHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const stars = Array.from({ length: 65 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 1.8 + 0.5,
+      alpha: Math.random(),
+      speed: Math.random() * 0.015 + 0.005
+    }));
+
+    let fireworks = [];
+
+    class FireworkParticle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 3 + 1;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.02 + 0.015;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.03;
+        this.alpha -= this.decay;
+      }
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(this.alpha, 0);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function createFirework(x, y) {
+      const colors = ['#ffd875', '#e45f48', '#8be0c8', '#ffffff', '#ff9ebb'];
+      for (let i = 0; i < 36; i++) {
+        fireworks.push(new FireworkParticle(x, y, colors[Math.floor(Math.random() * colors.length)]));
+      }
+    }
+
+    setInterval(() => {
+      if (Math.random() < 0.4) {
+        createFirework(Math.random() * width, Math.random() * (height * 0.7));
+      }
+    }, 2800);
+
+    document.getElementById('hero-header').addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      createFirework(e.clientX - rect.left, e.clientY - rect.top);
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      stars.forEach(s => {
+        s.alpha += s.speed;
+        if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(s.alpha)})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      fireworks.forEach((p, index) => {
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) fireworks.splice(index, 1);
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Lightbox 功能
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.figure-card img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', () => lightbox.style.display = 'none');
+  </script>
 </body>
 </html>
