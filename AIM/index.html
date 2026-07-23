@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AIMYON 2026 “、、、” 甲子園ライブレポート｜台湾からの参戦記録</title>
   <meta name="description" content="台湾からAIMYON 2026年7月14日・15日の阪神甲子園球場10周年ライブ「、、、」に参戦した記録。フライト欠航からの奇跡、アリーナ最前列での感動、そして忘れられない夏の夜の思い出。">
-  <meta name="keywords" content="AIMYON, あいみょん, 甲子園, 阪神甲子園球場, ライブレポート, 台湾, 祇園うちわ, 関西, 台湾人, 大阪, 京都, 神戸, 10周年, 夏の夜, 月夜, ブルーアワー, アコースティック, フィルム写真, はるなつあきふゆ">
+  <meta name="keywords" content="AIMYON, あいみょん, 甲子園, 阪神甲子園球場, ライブレポート, 台湾, 祇園うちわ, 関西, 台湾人, 大阪, 京都, 神戸, 10周年, 夏の夜, 月夜, ブルーアワー, アコースティック, フィルム写真, はるなつあきふゆ, 一期一会">
   <meta name="author" content="Taiwanese AIM">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="format-detection" content="telephone=no">
@@ -217,7 +217,7 @@
       margin-bottom: 1.2rem;
     }
 
-    /* 專屬中文註解區塊（供自己看） */
+    /* 專屬中文註解區塊 */
     .personal-note {
       margin-top: 1rem;
       margin-bottom: 1.8rem;
@@ -230,49 +230,53 @@
       font-family: 'Noto Sans TC', sans-serif;
     }
 
-    /* 夾敘夾議圖文卡片 */
+    /* 質感圖文相片卡片（保證原圖比例不裁切） */
     .figure-card {
-      background: white;
-      padding: 12px 12px 15px 12px;
-      margin: 1.8rem 0;
-      box-shadow: 3px 4px 15px rgba(0,0,0,0.08);
-      border: 1px solid #e0e0e0;
-      transform: rotate(-0.8deg);
-      transition: transform 0.3s ease;
+      background: #ffffff;
+      padding: 14px 14px 18px 14px;
+      margin: 2rem 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
+      border: 1px solid #eae5d9;
+      border-radius: 6px;
+      transform: rotate(-0.6deg);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
     }
 
     .figure-card:nth-of-type(even) {
-      transform: rotate(0.8deg);
+      transform: rotate(0.6deg);
     }
 
     .figure-card:hover {
-      transform: scale(1.02) rotate(0);
+      transform: scale(1.015) rotate(0deg);
       z-index: 5;
-      box-shadow: 5px 8px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
     }
 
+    /* 關鍵修復：寬度自適應、高度自動、徹底防止切邊 */
     .figure-card img {
       width: 100%;
       height: auto;
-      max-height: 480px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 4px;
       display: block;
     }
 
     .figure-caption {
       text-align: center;
-      margin-top: 8px;
+      margin-top: 12px;
       margin-bottom: 0;
       font-size: 0.95rem;
       color: #555;
+      letter-spacing: 0.02em;
     }
 
+    /* 雙圖並排網格：避免高低差拉伸裁切 */
     .figure-grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 1.8rem 0;
+      gap: 1.8rem;
+      margin: 2rem 0;
+      align-items: start;
     }
 
     .figure-grid-2 .figure-card {
@@ -281,7 +285,8 @@
 
     @media (max-width: 768px) {
       .special-thanks, .article-content { padding: 1.5rem; }
-      .figure-card { margin: 1.2rem 0; }
+      .figure-card { margin: 1.4rem 0; padding: 10px 10px 14px 10px; }
+      .figure-grid-2 { gap: 1.2rem; }
     }
   </style>
 </head>
@@ -301,16 +306,16 @@
     <section class="special-thanks handwritten">
       <h2>忘れられない、あの美しかった夏の夜</h2>
       <p>
-       2026年7月14日、甲子園の夜風とアリーナの熱気が交差したあの夜。<br><br>
-もし、いつかこのページをあなたが目にする日が来たら――そんなことを少しだけ思いながら、あの夏の日の記憶をそっとここに綴っておきます。<br><br>
-偶然隣の席になり、ふと目に留まったあなたの<span class="highlight-jp">「祇園の団扇（うちわ）」</span>。「もしかして京都から来られたのかな？」と密かに好奇心が膨らむと同時に、台湾から参戦した私は「今夜はどんな風に一緒にこの音楽を楽しめるんだろう！」と期待で胸がいっぱいでした。そして、あなたの気さくで温かい笑顔に触れて、そのワクワク感は一気に最高潮へ。ステージへ向かう彼女がすぐそばを通ったあの瞬間、言葉を交わさずとも自然と前をゆずり合ったあの小さなやり取りや、同じ音楽に心揺さぶられたあの時間は、私にとってかけがえのない宝物です。<br><br>
-終演後に一緒に撮ってくれた写真（後ろのおじさんの表情も最高でしたね！笑）を見るたびに、あの夜の熱気と心地よい夜風が鮮やかに蘇ってきます。<br><br>
-思いがけない偶然が重なって生まれた、特別で忘れられない経験。あなたのおかげで、この甲子園での10周年ライブが、私にとって一生大切にしたい最も美しい夏の思い出になりました。またいつか、同じように音楽が響く場所で、新しい奇跡が重なる日を密かに楽しみにしています。
+        2026年7月14日、甲子園の夜風とアリーナの熱気が交差したあの夜。<br><br>
+        もし、いつかこのページをあなたが目にする日が来たら――そんなことを少しだけ思いながら、あの夏の日の記憶をそっとここに綴っておきます。<br><br>
+        偶然隣の席になり、ふと目に留まったあなたの<span class="highlight-jp">「祇園の団扇（うちわ）」</span>。「もしかして京都から来られたのかな？」と密かに好奇心が膨らむと同時に、台湾から参戦した私は「今夜はどんな風に一緒にこの音楽を楽しめるんだろう！」と期待で胸がいっぱいでした。知識や言葉の壁を越えて、あなたの気さくで温かい笑顔に触れて、そのワクワク感は一気に最高潮へ。ステージへ向かう彼女がすぐそばを通ったあの瞬間、言葉を交わさずとも自然と前をゆずり合ったあの小さなやり取りや、同じ音楽に心揺さぶられたあの時間は、私にとってかけがえのない宝物です。<br><br>
+        終演後に一緒に撮ってくれた写真（後ろのおじさんの表情も最高でしたね！笑）を見るたびに、あの夜の熱気と心地よい夜風が鮮やかに蘇ってきます。<br><br>
+        思いがけない偶然が重なって生まれた、特別で忘れられない経験。あなたのおかげで、この甲子園での10周年ライブが、私にとって一生大切にしたい最も美しい夏の思い出になりました。またいつか、同じように音楽が響く場所で、新しい奇跡が重なる日を密かに楽しみにしています。
       </p>
 
-      <!-- 值得紀念：象徵十週年回憶的主視覺照片 -->
+      <!-- 值得紀念：象徵十週年回憶的主視覺照片（全圖完整呈現） -->
       <div class="figure-card">
-        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784773114/Gemini_Generated_Image_6c6m4j6c6m4j6c6m_g87zse.png" alt="Aimyon 10th Anniversary Memorial Photo">
+        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784773114/Gemini_Generated_Image_6c6m4j6c6m4j6c6m_g87zse.png" alt="AIMYON 阪神甲子園球場 10周年記念ライブ メモリアルショット">
         <p class="figure-caption handwritten">甲子園十週年の美好記憶</p>
       </div>
 
@@ -331,11 +336,11 @@
       <!-- 夾敘夾議：啟程與抵達畫面 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_125134_xuev27.jpg" alt="12:51 Departure">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_125134_xuev27.jpg" alt="12:51 旅程啟程與街景 - 台湾から関西空港へ">
           <p class="figure-caption handwritten">12:51 | 旅程啟程與街景</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_154319_fojjlh.jpg" alt="15:43 Arrival at Koshien">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_154319_fojjlh.jpg" alt="15:43 抵達甲子園周邊 - 阪神甲子園球場前">
           <p class="figure-caption handwritten">15:43 | 抵達甲子園周邊氛圍</p>
         </div>
       </div>
@@ -351,22 +356,22 @@
       <!-- 夾敘夾議：入場期待與搖滾區首排視野 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_160617_akssrm.jpg" alt="16:06 Entry">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711548/IMG_20260714_160617_akssrm.jpg" alt="16:06 甲子園アリーナ入場前の期待">
           <p class="figure-caption handwritten">16:06 | 入場前的期待與留影</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163903_hsx9si.jpg" alt="16:39 Stadium Scene">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163903_hsx9si.jpg" alt="16:39 阪神甲子園球場 周辺の記念モニュメント">
           <p class="figure-caption handwritten">16:39 | 球場周遭與紀念佈置</p>
         </div>
       </div>
 
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163912_zjsmuo.jpg" alt="16:39 Countdown">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711549/IMG_20260714_163912_zjsmuo.jpg" alt="16:39 あいみょん10周年甲子園ライブ開演直前">
           <p class="figure-caption handwritten">16:39 | 迎向十週年紀念開演</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_171152_twwn7y.jpg" alt="17:11 Arena View">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_171152_twwn7y.jpg" alt="17:11 甲子園アリーナ最前列からの絶景視野">
           <p class="figure-caption handwritten">17:11 | 搖滾首排的絕佳視野</p>
         </div>
       </div>
@@ -382,11 +387,11 @@
       <!-- 夾敘夾議：散場夜色與夏夜餘韻 -->
       <div class="figure-grid-2">
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_211048_kbjeeu.jpg" alt="21:10 Night Scene">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784711550/IMG_20260714_211048_kbjeeu.jpg" alt="21:10 ライブ終演後 阪神甲子園球場の夜景と夜風">
           <p class="figure-caption handwritten">21:10 | 散場後的甲子園夜色</p>
         </div>
         <div class="figure-card">
-          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712281/IMG_20260714_211141_qtug55.jpg" alt="21:11 Night Atmosphere">
+          <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712281/IMG_20260714_211141_qtug55.jpg" alt="21:11 甲子園散場後の夏の夜の余韻">
           <p class="figure-caption handwritten">21:11 | 散場後的夜景與餘韻</p>
         </div>
       </div>
@@ -400,7 +405,7 @@
 
       <!-- 夾敘夾議：最終紀念時刻 -->
       <div class="figure-card">
-        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712160/IMG_20260714_213551_bqdsai.jpg" alt="21:35 Koshien Night">
+        <img src="https://res.cloudinary.com/dshfj9ace/image/upload/v1784712160/IMG_20260714_213551_bqdsai.jpg" alt="21:35 阪神甲子園球場 10周年ライブ参戦達成">
         <p class="figure-caption handwritten">21:35 | 甲子園夜色與紀念時刻</p>
       </div>
 
