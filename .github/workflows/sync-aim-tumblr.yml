@@ -1,0 +1,60 @@
+name: Sync AIM to Tumblr
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'AIM/index.html'
+      - '.github/tumblr.json'
+      - '.github/workflows/sync-aim-tumblr.yml'
+      - 'scripts/tumblr_sync.py'
+      - 'tests/test_tumblr_sync.py'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Build and check only; do not update Tumblr'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aim-tumblr-publishing
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Read the latest main branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Test source conversion and publishing safeguards
+        run: python3 -m unittest discover -s tests -v
+      - name: Build the Tumblr preview from AIM/index.html
+        run: python3 scripts/tumblr_sync.py --dry-run
+      - name: Report pending API setup
+        if: vars.TUMBLR_SYNC_ENABLED != 'true'
+        run: echo 'Tumblr publishing is not enabled. Preview only; API authorization and TUMBLR_SYNC_ENABLED=true are still required.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Update the existing Tumblr post and verify it
+        if: vars.TUMBLR_SYNC_ENABLED == 'true' && (github.event_name == 'push' || inputs.dry_run == false)
+        env:
+          TUMBLR_SYNC_ENABLED: ${{ vars.TUMBLR_SYNC_ENABLED }}
+          TUMBLR_CONSUMER_KEY: ${{ secrets.TUMBLR_CONSUMER_KEY }}
+          TUMBLR_CONSUMER_SECRET: ${{ secrets.TUMBLR_CONSUMER_SECRET }}
+          TUMBLR_OAUTH_TOKEN: ${{ secrets.TUMBLR_OAUTH_TOKEN }}
+          TUMBLR_OAUTH_TOKEN_SECRET: ${{ secrets.TUMBLR_OAUTH_TOKEN_SECRET }}
+        run: python3 scripts/tumblr_sync.py --publish
+      - name: Keep preview and any public post backup
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: aim-tumblr-${{ github.run_id }}
+          path: tumblr-preview/
+          if-no-files-found: ignore
+          retention-days: 30
