@@ -18,7 +18,7 @@ import secrets
 import sys
 import time
 from urllib.error import HTTPError, URLError
-from urllib.parse import parse_qsl, quote, urlsplit
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit
 from urllib.request import Request
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -251,7 +251,7 @@ def validate_target(post, config):
         raise SyncError("Tumblr returned a different blog.")
     if post.get("state") != "published" or post.get("trail"):
         raise SyncError("Only this original, already-public post can be updated.")
-    if not post.get("is_blocks_post_format") and post.get("type") != "text":
+    if not post.get("is_blocks_post_format") and post.get("type") not in {"text", "blocks"}:
         raise SyncError("The existing post cannot be edited with NPF.")
     if not isinstance(post.get("content"), list):
         raise SyncError("Tumblr returned no NPF content.")
@@ -276,14 +276,31 @@ def projection(content):
     return result
 
 
+def fetch_post(client, config):
+    # The collection route returns the authoritative blog name alongside the
+    # selected post. Unlike the NPF single-post route, its documented shape
+    # includes the blog identity needed for our target check.
+    query = urlencode({"id": config["post_id"], "npf": "true", "limit": 1})
+    response = client.call("GET", f"blog/{config['blog']}/posts?{query}")
+    expected_name = config["blog"].removesuffix(".tumblr.com")
+    if response.get("blog", {}).get("name") != expected_name:
+        raise SyncError("Tumblr returned a different blog identity.")
+    posts = response.get("posts", [])
+    if len(posts) != 1:
+        raise SyncError("Tumblr did not return exactly one matching public post.")
+    post = dict(posts[0])
+    post.setdefault("blog_name", expected_name)
+    validate_target(post, config)
+    return post
+
+
 def publish(client, payload, config, output):
     blog = config["blog"]
     post_id = config["post_id"]
     if not re.fullmatch(r"[a-z0-9-]+\.tumblr\.com", blog) or not re.fullmatch(r"[0-9]+", post_id):
         raise SyncError("Invalid configured blog or post ID.")
     path = f"blog/{blog}/posts/{post_id}"
-    before = client.call("GET", path + "?npf=true")
-    validate_target(before, config)
+    before = fetch_post(client, config)
     (output / "before.json").write_text(json.dumps(before, ensure_ascii=False, indent=2), encoding="utf-8")
     update = dict(payload, state="published", tags=",".join(before.get("tags", [])))
     if before.get("slug"):
@@ -291,8 +308,7 @@ def publish(client, payload, config, output):
     response = client.call("PUT", path, update)
     if str(response.get("id", response.get("post_id"))) != post_id:
         raise SyncError("Tumblr did not confirm the expected updated post ID.")
-    after = client.call("GET", path + "?npf=true")
-    validate_target(after, config)
+    after = fetch_post(client, config)
     (output / "after.json").write_text(json.dumps(after, ensure_ascii=False, indent=2), encoding="utf-8")
     if projection(after["content"]) != projection(payload["content"]):
         raise SyncError("The post was updated but content readback differs. Review before.json and after.json before retrying.")

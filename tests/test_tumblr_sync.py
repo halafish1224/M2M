@@ -112,7 +112,7 @@ class PublishingTests(unittest.TestCase):
                 client.calls.append((method, path, payload))
                 if method == "PUT":
                     return {"id": self.config["post_id"]}
-                return copy.deepcopy(before if len(client.calls) == 1 else after)
+                return {"blog": {"name": "halafish"}, "posts": [copy.deepcopy(before if len(client.calls) == 1 else after)]}
         return Client()
 
     def test_one_existing_post_is_updated_backed_up_and_verified(self):
@@ -147,6 +147,20 @@ class PublishingTests(unittest.TestCase):
         client = self.client(bad_readback=True)
         with tempfile.TemporaryDirectory() as tmp, self.assertRaisesRegex(sync.SyncError, "readback differs"):
             sync.publish(client, self.payload, self.config, Path(tmp))
+
+    def test_npf_blocks_type_without_legacy_flag_is_supported(self):
+        before = dict(self.before, type="blocks")
+        del before["is_blocks_post_format"]
+        client = self.client(before=before)
+        with tempfile.TemporaryDirectory() as tmp:
+            sync.publish(client, self.payload, self.config, Path(tmp))
+
+    def test_collection_blog_identity_must_match(self):
+        class WrongBlogClient:
+            def call(self, *args):
+                return {"blog": {"name": "other"}, "posts": []}
+        with self.assertRaisesRegex(sync.SyncError, "blog identity"):
+            sync.fetch_post(WrongBlogClient(), self.config)
 
 
 if __name__ == "__main__":
