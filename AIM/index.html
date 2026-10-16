@@ -257,6 +257,82 @@
       padding: 0 4px;
     }
 
+    /* Spotify 旅程播放清單 */
+    .playlist-section {
+      background:
+        linear-gradient(135deg, rgba(13, 56, 48, .97), rgba(9, 26, 36, .98));
+      color: #fffdf6;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 18px;
+      padding: 2rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 14px 36px rgba(9, 26, 36, .16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .playlist-section::after {
+      content: '♫';
+      position: absolute;
+      right: 20px;
+      top: 4px;
+      font-family: 'Yomogi', cursive;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, .07);
+      pointer-events: none;
+    }
+
+    .playlist-kicker {
+      margin: 0 0 .25rem;
+      color: #ffd875;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .playlist-section h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      line-height: 1.35;
+      color: #fff;
+    }
+
+    .playlist-intro {
+      margin: .8rem 0 1.25rem;
+      max-width: 760px;
+      color: rgba(255, 255, 255, .8);
+      font-size: .98rem;
+    }
+
+    .spotify-embed {
+      position: relative;
+      z-index: 1;
+    }
+
+    .spotify-embed iframe {
+      width: 100%;
+      height: 352px;
+      display: block;
+      border: 0;
+      border-radius: 12px;
+      background: #121212;
+    }
+
+    .playlist-fallback {
+      margin: .85rem 0 0;
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .66);
+    }
+
+    .playlist-fallback a {
+      color: #ffd875;
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
     /* 內文文章區塊 */
     .article-content {
       background: rgba(255, 253, 246, .9);
@@ -406,6 +482,9 @@
 
     @media (max-width: 768px) {
       .special-thanks, .article-content { padding: 1.5rem; }
+      .playlist-section { padding: 1.35rem; border-radius: 14px; }
+      .playlist-section::after { font-size: 4rem; right: 12px; }
+      .spotify-embed iframe { height: 352px; }
       .figure-card { margin: 1.5rem 0; padding: 12px 12px 16px 12px; }
       .figure-grid-2 { gap: 1.2rem; }
     }
@@ -472,6 +551,36 @@
       <div class="personal-note">
         📝 <strong>留白處的夜風，收藏著夏日回憶。</strong>
       </div>
+    </section>
+
+    <!-- 自選 Spotify 旅程播放清單 -->
+    <section class="playlist-section" aria-labelledby="playlist-title-ja playlist-title-zh">
+      <div class="lang-ja">
+        <p class="playlist-kicker">MY SPOTIFY PLAYLIST</p>
+        <h2 id="playlist-title-ja" class="handwritten">この二日間と一緒に残したプレイリスト</h2>
+        <p class="playlist-intro">このページと一緒に聴くために、自分でまとめた Spotify プレイリスト。公式セットリストの再現ではなく、甲子園の二日間を振り返るときに流したい、自分なりの選曲です。</p>
+      </div>
+      <div class="lang-zh">
+        <p class="playlist-kicker">MY SPOTIFY PLAYLIST</p>
+        <h2 id="playlist-title-zh" class="handwritten">和這兩天一起留下的播放清單</h2>
+        <p class="playlist-intro">這是我自己整理、適合和這篇紀錄一起播放的 Spotify 歌單。不是官方歌單，也不是現場 setlist 的重製，只是回頭想起甲子園這兩天時，我會想再播放的一份選曲。</p>
+      </div>
+
+      <div class="spotify-embed">
+        <iframe
+          data-testid="embed-iframe"
+          src="https://open.spotify.com/embed/playlist/2wACTIO0ZjuIvjWktL0L2q?utm_source=generator&si=d498e9a338544b25"
+          title="Spotify playlist"
+          width="100%"
+          height="352"
+          frameborder="0"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
+
+      <p class="playlist-fallback lang-ja">埋め込みが表示されない場合は、<a href="https://open.spotify.com/playlist/2wACTIO0ZjuIvjWktL0L2q" target="_blank" rel="noopener noreferrer">Spotify でプレイリストを開く</a>。</p>
+      <p class="playlist-fallback lang-zh">如果內嵌播放器沒有顯示，可<a href="https://open.spotify.com/playlist/2wACTIO0ZjuIvjWktL0L2q" target="_blank" rel="noopener noreferrer">直接在 Spotify 開啟播放清單</a>。</p>
     </section>
 
     <!-- 主內文 -->
